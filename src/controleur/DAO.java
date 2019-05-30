@@ -1,0 +1,45 @@
+package controleur;
+
+import model.*;
+import java.sql.*;
+
+public abstract class DAO<T> 
+{
+  protected Connexion con;
+  
+  public DAO(Connexion m_con)
+  {
+	  this.con=m_con;
+  }
+  
+  public abstract void create(T obj);
+
+  /**
+  * Méthode pour effacer
+  * @param obj
+  * @return boolean 
+  */
+  public abstract void delete(T obj);
+
+  /**
+  * Méthode de mise à jour
+  * @param obj
+  * @return boolean
+  */
+  public abstract void update(T obj);
+
+  /**
+  * Méthode de recherche des informations
+  * @param id
+  * @return T
+  */
+  public abstract T find(int id);
+  
+  
+  public abstract void seeAll();
+
+
+  
+}
+  
+
