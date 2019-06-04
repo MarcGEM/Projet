@@ -55,13 +55,30 @@ public class AnneescolaireDAO extends DAO<Anneescolaire>
 	}
 
 	@Override
-	public Anneescolaire find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Anneescolaire find(int id) 
+	{
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM anneescolaire where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 a=new Anneescolaire(con.rset.getInt("id"),con.rset.getString("annee"));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override
-	public void seeAll() {
+	public void seeAll() 
+	{
 		// TODO Auto-generated method stub
 		
 	}

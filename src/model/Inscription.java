@@ -15,6 +15,10 @@ public class Inscription
 		c.ajouterEleve(e);
 	}
 	
+	public Inscription() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId()
 	{
 		return id;

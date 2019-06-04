@@ -12,6 +12,14 @@ public class Anneescolaire
 	}
 	
 	
+	
+
+
+	public Anneescolaire() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId()
 	{
 		return id;

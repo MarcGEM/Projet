@@ -15,6 +15,11 @@ public class Eleve
 	}
 
 
+	public Eleve() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId() 
 	{
 		// TODO Auto-generated method stub

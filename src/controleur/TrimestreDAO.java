@@ -53,9 +53,38 @@ public class TrimestreDAO extends DAO<Trimestre>
 	}
 
 	@Override
-	public Trimestre find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Trimestre find(int id) 
+	{
+		Anneescolaire a=new Anneescolaire();
+		Trimestre t=new Trimestre();
+		String query="SELECT * FROM trimestre where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 int idt=con.rset.getInt("id");
+				 int numero=con.rset.getInt("numero");
+				 String debut=con.rset.getString("debut");
+				 String fin=con.rset.getString("fin");
+				 int ida=con.rset.getInt("anneescolaire_id");
+				 query="SELECT * FROM anneescolaire where id="+ida;
+				 con.rset=con.stmt.executeQuery(query);
+				 if(con.rset.first())
+				 {
+					 a=new Anneescolaire(con.rset.getInt("id"),con.rset.getString("annee"));
+					 t=new Trimestre(idt,numero,debut,fin,a);
+				 }
+	
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return t;
+		
 	}
 
 	@Override

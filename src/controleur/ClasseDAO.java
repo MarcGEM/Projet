@@ -55,8 +55,43 @@ public class ClasseDAO extends DAO<Classe>
 	@Override
 	public Classe find(int id) 
 	{
+		Anneescolaire a=new Anneescolaire();
+		Niveau n=new Niveau();
+		Classe c=new Classe();
+		String query="SELECT * FROM classe where id="+id;
 		
-		return null;
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 int idt=con.rset.getInt("id");
+				 String nom=con.rset.getString("nom");
+				 int idn=con.rset.getInt("niveau_id");
+				 int ida=con.rset.getInt("anneescolaire_id");
+				 query="SELECT * FROM anneescolaire where id="+ida;
+				 con.rset=con.stmt.executeQuery(query);
+				 if(con.rset.first())
+				 {
+					 a=new Anneescolaire(con.rset.getInt("id"),con.rset.getString("annee"));
+					 query="SELECT * FROM niveau where id="+idn;
+					 con.rset=con.stmt.executeQuery(query);
+					 if(con.rset.first())
+					 {
+						 n=new Niveau(con.rset.getInt("id"),con.rset.getString("nom"));
+						 c=new Classe(idt,nom,n,a);
+					 }
+					 
+				 }
+	
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return c;
+		
 	}
 
 	@Override

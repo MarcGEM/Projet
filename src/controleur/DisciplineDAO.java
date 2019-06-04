@@ -56,8 +56,25 @@ public class DisciplineDAO extends DAO<Discipline>
 	public Discipline find(int id) 
 	{
 		
-		return null;
+		Discipline a=new Discipline();
+		String query="SELECT * FROM discipline where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 a=new Discipline(con.rset.getInt("id"),con.rset.getString("nom"));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
+	
 
 	@Override
 	public void seeAll() 

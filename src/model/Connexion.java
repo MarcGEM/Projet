@@ -29,11 +29,7 @@ public class Connexion
         System.out.println("Connexion établie");
     }
 
-	public ResultSet prepareStatement(String string) 
-	{
-		// TODO Auto-generated method stub
-		return rset;
-	}
+	
 
 	
     

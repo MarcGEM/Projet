@@ -17,7 +17,7 @@ public class EleveDAO extends DAO<Eleve>
 	public void create(Eleve obj) 
 	{
 		try {
-			con.stmt.executeUpdate( "INSERT INTO eleve (id,nom,prenom) VALUES ('"+obj.getId()+"','"+obj.getNom()+",'"+obj.getPrenom()+"')");
+			con.stmt.executeUpdate( "INSERT INTO eleve (id,nom,prenom) VALUES ('"+obj.getId()+"','"+obj.getNom()+"','"+obj.getPrenom()+"')");
 			System.out.println("Eleve create");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -53,9 +53,25 @@ public class EleveDAO extends DAO<Eleve>
 	}
 
 	@Override
-	public Eleve find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Eleve find(int id) 
+	{
+		Eleve a=new Eleve();
+		String query="SELECT * FROM eleve where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 a=new Eleve(con.rset.getInt("id"),con.rset.getString("nom"),con.rset.getString("prenom"));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override

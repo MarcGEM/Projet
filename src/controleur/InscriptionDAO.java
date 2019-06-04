@@ -53,9 +53,32 @@ public class InscriptionDAO extends DAO<Inscription>
 	}
 
 	@Override
-	public Inscription find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Inscription find(int id) 
+	{
+		Inscription a=new Inscription();
+		DAO<Classe>classeDao=new ClasseDAO(con);
+		DAO<Eleve>EleveDao=new EleveDAO(con);
+		
+		String query="SELECT * FROM inscription where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 int idt=con.rset.getInt("id");
+				 int idc=con.rset.getInt("classe_id");
+				 int ide=con.rset.getInt("eleve_id");
+				 
+				 a=new Inscription(idt,classeDao.find(idc),EleveDao.find(ide));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override
