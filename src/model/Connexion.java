@@ -1,3 +1,5 @@
+
+
 package model;
 import java.sql.*;
 import java.util.ArrayList;
@@ -28,6 +30,25 @@ public class Connexion
         
         System.out.println("Connexion Ètablie");
     }
+    
+    public Connexion(String urlDatabase, String Mdp ) throws SQLException, ClassNotFoundException {
+        // chargement driver "com.mysql.jdbc.Driver"
+        Class.forName("com.mysql.jdbc.Driver");
+
+        // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
+         //urlDatabase = "jdbc:mysql://localhost/ecole";
+         
+        //cr√©ation d'une connexion JDBC √† la base 
+        conn = DriverManager.getConnection(urlDatabase,Mdp, "");
+
+        // cr√©ation d'un ordre SQL (statement)
+        stmt = conn.createStatement();
+        stmt1 = conn.createStatement();
+        
+        
+        System.out.println("Connexion Ètablie");
+    }
+    
 
 	public ResultSet prepareStatement(String string) 
 	{

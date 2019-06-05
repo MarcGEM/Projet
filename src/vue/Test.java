@@ -10,8 +10,8 @@ public class Test {
 	public static void main(String[] args) 
 	{
 		
-		try {
-			Connexion con = new Connexion();
+		/*try {
+			//Connexion con = new Connexion();
 			
 			DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
 			DAO<Anneescolaire> anneescolaireDao = new AnneescolaireDAO(con);
@@ -48,9 +48,14 @@ public class Test {
 			e.printStackTrace();
 		}
 		
+	
+		*/
+		
+			Acceuil Pacceuil = new Acceuil();
 	   
 	      
-	    }
+	}
+	
 
 	}
 
