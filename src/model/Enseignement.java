@@ -18,6 +18,11 @@ public class Enseignement
 	}
 	
 	
+	public Enseignement() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId()
 	{
 		return id;

@@ -56,7 +56,23 @@ public class NiveauDAO extends DAO<Niveau>
 	public Niveau find(int id) 
 	{
 		
-		return null;
+		Niveau a=new Niveau();
+		String query="SELECT * FROM niveau where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 a=new Niveau(con.rset.getInt("id"),con.rset.getString("nom"));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override

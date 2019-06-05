@@ -54,8 +54,31 @@ public class BulletinDAO extends DAO<Bulletin>
 
 	@Override
 	public Bulletin find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Bulletin a=new Bulletin();
+		DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
+		DAO<Inscription>InscriptionDao=new InscriptionDAO(con);
+		
+		String query="SELECT * FROM bulletin where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 int idt=con.rset.getInt("id");
+				 int idtr=con.rset.getInt("trimestre_id");
+				 int idi=con.rset.getInt("inscription_id");
+				 String appreciation=con.rset.getString("appreciation");
+				 
+				 a=new Bulletin(idt,trimestreDao.find(idtr),InscriptionDao.find(idi),appreciation);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override

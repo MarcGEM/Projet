@@ -50,11 +50,7 @@ public class Connexion
     }
     
 
-	public ResultSet prepareStatement(String string) 
-	{
-		// TODO Auto-generated method stub
-		return rset;
-	}
+	
 
 	
     

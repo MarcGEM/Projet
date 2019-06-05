@@ -53,9 +53,36 @@ public class EvaluationDAO extends DAO<Evaluation>
 	}
 
 	@Override
-	public Evaluation find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Evaluation find(int id) 
+	{
+		Evaluation a=new Evaluation();
+		
+		DAO<Detailbulletin>DetailDao=new DetailbulletinDAO(con);
+		
+		String query="SELECT * FROM evaluation where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 int idt=con.rset.getInt("id");
+				 int idtr=con.rset.getInt("detailbulletin_id");
+				 int note=con.rset.getInt("note");
+				 String appreciation=con.rset.getString("appreciation");
+				 
+				 a=new Evaluation(idt,DetailDao.find(idtr),note,appreciation);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
+		
+		
+		
 	}
 
 	@Override

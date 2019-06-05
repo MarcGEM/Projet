@@ -53,9 +53,33 @@ public class DetailbulletinDAO extends DAO<Detailbulletin>
 	}
 
 	@Override
-	public Detailbulletin find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Detailbulletin find(int id) 
+	{
+		Detailbulletin a=new Detailbulletin();
+		DAO<Bulletin>BulletinDao=new BulletinDAO(con);
+		DAO<Enseignement>EnseignementDao=new EnseignementDAO(con);
+		
+		String query="SELECT * FROM detailbulletin where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 int idt=con.rset.getInt("id");
+				 int idtr=con.rset.getInt("bulletin_id");
+				 int idi=con.rset.getInt("enseignement_id");
+				 String appreciation=con.rset.getString("appreciation");
+				 
+				 a=new Detailbulletin(idt,BulletinDao.find(idtr),EnseignementDao.find(idi),appreciation);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override

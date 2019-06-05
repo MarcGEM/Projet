@@ -18,6 +18,11 @@ public class Trimestre
 	}
 	
 	
+	public Trimestre() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Anneescolaire getAnneescolaire()
 	{
 		return a;
@@ -45,5 +50,21 @@ public class Trimestre
 	{
 		return numero;
 	}
+	
+	
+	public void setDebut(String debut)
+	{
+		this.debut=debut;
+	}
+	
+	public void setFind(String fin)
+	{
+		this.fin=fin;
+	}
+	public void setNumero(int numero)
+	{
+		this.numero=numero;
+	}
+	
 
 }

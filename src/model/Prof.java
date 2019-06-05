@@ -16,6 +16,12 @@ public class Prof
 	
 	
 	
+	public Prof() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public int getId()
 	{
 		return id;

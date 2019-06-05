@@ -11,6 +11,10 @@ public class Niveau
 		this.nom=nom;
 	}
 	
+	public Niveau() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId()
 	{
 		return id;

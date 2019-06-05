@@ -17,7 +17,7 @@ public class ProfDAO extends DAO<Prof>
 	public void create(Prof obj) 
 	{
 		try {
-			con.stmt.executeUpdate( "INSERT INTO prof (id,nom,prenom) VALUES ('"+obj.getId()+"','"+obj.getNom()+",'"+obj.getPrenom()+"')");
+			con.stmt.executeUpdate( "INSERT INTO prof (id,nom,prenom) VALUES ('"+obj.getId()+"','"+obj.getNom()+"','"+obj.getPrenom()+"')");
 			System.out.println("Prof create");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -53,9 +53,25 @@ public class ProfDAO extends DAO<Prof>
 	}
 
 	@Override
-	public Prof find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Prof find(int id) 
+	{
+		Prof a=new Prof();
+		String query="SELECT * FROM prof where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 a=new Prof(con.rset.getInt("id"),con.rset.getString("nom"),con.rset.getString("prenom"));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override

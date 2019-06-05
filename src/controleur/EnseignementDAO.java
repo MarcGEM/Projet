@@ -53,9 +53,35 @@ public class EnseignementDAO extends DAO<Enseignement>
 	}
 
 	@Override
-	public Enseignement find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Enseignement find(int id) 
+	{
+		Enseignement a=new Enseignement();
+		DAO<Classe>classeDao=new ClasseDAO(con);
+		DAO<Discipline>disciplineDao=new DisciplineDAO(con);
+		DAO<Prof>ProfDao=new ProfDAO(con);
+		
+		String query="SELECT * FROM enseignement where id="+id;
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			if(con.rset.first())
+			{
+				 int ide=con.rset.getInt("id");
+				 int idc=con.rset.getInt("classe_id");
+				 int idd=con.rset.getInt("discipline_id");
+				 int idp=con.rset.getInt("prof_id");
+				 
+				 a=new Enseignement(ide,classeDao.find(idc),ProfDao.find(idp),disciplineDao.find(idd));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
+		
 	}
 
 	@Override

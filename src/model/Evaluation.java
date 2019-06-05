@@ -14,9 +14,15 @@ public class Evaluation
 		this.d=d;
 		this.note=note;
 		this.appreciation=appreciation;
+		d.AjouterEvaluation(this);
 	}
 	
 	
+	public Evaluation() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId()
 	{
 		return id;
@@ -39,6 +45,10 @@ public class Evaluation
 		return appreciation;
 	}
 	
+	public void setAppreciation(String appreciation)
+	{
+		this.appreciation=appreciation;
+	}
 	
 
 }
