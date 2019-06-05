@@ -13,8 +13,8 @@ public class Test {
 		try {
 			Connexion con = new Connexion();
 			
-			DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
-			DAO<Anneescolaire> anneescolaireDao = new AnneescolaireDAO(con);
+			//DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
+			//DAO<Anneescolaire> anneescolaireDao = new AnneescolaireDAO(con);
 			DAO<Niveau> niveauDao=new NiveauDAO(con);
 			DAO<Classe>classeDao=new ClasseDAO(con);
 			DAO<Discipline>disciplineDao=new DisciplineDAO(con);
@@ -57,15 +57,15 @@ public class Test {
 			System.out.println("moyenne en "+de2.getEnseignement().getDiscipline().getNom()+ " : "+de2.moyenneDiscipline());
 			System.out.println("Moyenne général du trimestre: "+b1.moyenneGeneral());
 			
-			Anneescolaire a1=anneescolaireDao.find(1);
+			//Anneescolaire a1=anneescolaireDao.find(1);
 			
 			
-			System.out.println(a1.getAnnee());
+			//System.out.println(a1.getAnnee());
 			
-			EvaluationDao.create(e1);
+			//EvaluationDao.create(e1);
 			
-			Evaluation ins1=EvaluationDao.find(1);
-			System.out.println(ins1.getNote());
+			//Evaluation ins1=EvaluationDao.find(1);
+			//System.out.println(ins1.getNote());
 			//ProfDao.create(luc);
 			//Enseignement ensei1=EnseignementDao.find(1);
 			
@@ -74,7 +74,7 @@ public class Test {
 			//Niveau n1=niveauDao.find(1);
 			
 			//System.out.println(n1.getNom());
-			
+			Accueil ap=new Accueil();
 			
 			
 			/*
