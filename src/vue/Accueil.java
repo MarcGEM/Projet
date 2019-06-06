@@ -64,6 +64,7 @@ public class Accueil implements ActionListener
 		
 		btnClasse.setBounds(0, 285, 115, 29);
 		frame.getContentPane().add(btnClasse);
+		btnClasse.addActionListener(this);
 		
 		
 		btnAnneScolaire.setBounds(0, 51, 135, 29);
@@ -106,6 +107,11 @@ public class Accueil implements ActionListener
 		{
 			this.frame.setVisible(false);
 			DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
+		}
+		if(e.getSource() == btnClasse)
+		{
+			this.frame.setVisible(false);
+			DAO<Classe>classeDao=new ClasseDAO(con);
 		}
 		
 		

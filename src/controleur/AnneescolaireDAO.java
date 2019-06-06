@@ -3,6 +3,7 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +13,9 @@ import javax.swing.JTextField;
 import model.*;
 import java.awt.Font;
 import vue.*;
+import javax.swing.JTable;
+import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
 
 public class AnneescolaireDAO extends DAO<Anneescolaire> implements ActionListener
 {
@@ -32,6 +36,8 @@ public class AnneescolaireDAO extends DAO<Anneescolaire> implements ActionListen
 	JLabel lblNewLabel = new JLabel("Ajouter une ann\u00E9e scolaire");
 	JLabel lblSupprimer = new JLabel("Supprimer une ann\u00E9e scolaire");
 	private final JButton btnRetourMenu = new JButton("Retour menu");
+	ArrayList<Anneescolaire>tabAnneescolaire;
+	DefaultTableModel model;
 	
 	
 	public AnneescolaireDAO(Connexion m_con) 
@@ -43,10 +49,12 @@ public class AnneescolaireDAO extends DAO<Anneescolaire> implements ActionListen
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		tabAnneescolaire=new ArrayList<Anneescolaire>();
 		
 		btnAdd.setBounds(19, 181, 115, 29);
 		frame.getContentPane().add(btnAdd);
 		
+		frame.getContentPane().add(btnRetourMenu);
 		
 		
 		btnAdd.addActionListener(this);
@@ -134,6 +142,10 @@ public class AnneescolaireDAO extends DAO<Anneescolaire> implements ActionListen
 		
 		frame.getContentPane().add(btnRetourMenu);
 		
+		
+		//show();
+		
+		
 			
 		
 		
@@ -208,9 +220,25 @@ public class AnneescolaireDAO extends DAO<Anneescolaire> implements ActionListen
 	}
 
 	@Override
-	public void seeAll() 
+	public ArrayList seeAll() 
 	{
-		// TODO Auto-generated method stub
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM anneescolaire";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			while(con.rset.next())
+			{
+				 a=new Anneescolaire(con.rset.getInt("id"),con.rset.getString("annee"));
+				tabAnneescolaire.add(a);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tabAnneescolaire;
 		
 	}
 	
@@ -267,7 +295,7 @@ public class AnneescolaireDAO extends DAO<Anneescolaire> implements ActionListen
 			 
 		
 	}
-	
+
 }
 	
 
