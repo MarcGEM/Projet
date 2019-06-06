@@ -17,10 +17,13 @@ import model.*;
 public class TrimestreDAO extends DAO<Trimestre> 
 {
 	ArrayList<Trimestre>tabTrimestre;
+	AnneescolaireDAO annee;
 	
 	public TrimestreDAO(Connexion m_con) 
 	{
 		super(m_con);	
+		annee = new AnneescolaireDAO(con);
+		tabTrimestre=new ArrayList<Trimestre>();
 	}
 		
 	@Override
@@ -100,8 +103,30 @@ public class TrimestreDAO extends DAO<Trimestre>
 	@Override
 	public ArrayList seeAll() 
 	{
-		return null;
-		// TODO Auto-generated method stub
+		Trimestre t=new Trimestre();
+		String query="SELECT * FROM trimestre";
+		try {
+			con.rset1=con.stmt1.executeQuery(query);
+			while(con.rset.next())
+			{
+				int id=con.rset1.getInt("id");
+				int numero=con.rset1.getInt("numero");
+				String debut=con.rset1.getString("debut");
+				String fin=con.rset1.getString("fin");
+				int idanneescolaire=con.rset1.getInt("anneescolaire_id");
+				
+				t=new Trimestre(id,numero,debut,fin,annee.find(idanneescolaire));
+				
+				tabTrimestre.add(t);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tabTrimestre;
 		
 	}
 

@@ -84,12 +84,18 @@ public class GestionAnnee extends JFrame {
 		JMenuItem MItemEvaluation = new JMenuItem("Evaluation");
 		MenuAjouter.add(MItemEvaluation);
 		
+		JMenuItem MItemEnseignement = new JMenuItem("Enseignement");
+		MenuAjouter.add(MItemEnseignement);
+		
 		JMenu MenuModifier = new JMenu("Modifier");
 		menuBar.add(MenuModifier);
 		
 		JMenuItem MModifAnnee = new JMenuItem("Annee");
 		MModifAnnee.addActionListener(new MModifierAnneListener());
 		MenuModifier.add(MModifAnnee);
+		
+		JMenuItem MModifTrimestre = new JMenuItem("Trimestre\r\n");
+		MenuModifier.add(MModifTrimestre);
 		
 		JMenu MenuSupprimer = new JMenu("Supprimer");
 		menuBar.add(MenuSupprimer);
@@ -102,7 +108,7 @@ public class GestionAnnee extends JFrame {
 		
 		
 		JAjout = new JPanel();
-		JAjout.setBounds(207, 93, 293, 216);
+		JAjout.setBounds(275, 77, 293, 216);
 		
 		JAjout.setLayout(null);
 		getContentPane().add(JAjout);
@@ -136,29 +142,29 @@ public class GestionAnnee extends JFrame {
 		JAjout.setVisible(false);
 		
 		JModif = new JPanel();
-		JModif.setBounds(190, 68, 359, 253);
+		JModif.setBounds(285, 77, 341, 253);
 		getContentPane().add(JModif);
 		JModif.setLayout(null);
 		
-		JLabel lblModifier = new JLabel("MODIFIER");
+		JLabel lblModifier = new JLabel("Modifier une annee\r\n");
 		lblModifier.setBounds(99, 10, 151, 26);
 		JModif.add(lblModifier);
 		
-		JLabel LId = new JLabel("ID");
-		LId.setBounds(36, 71, 92, 26);
+		JLabel LId = new JLabel("ID de l'\u00E9l\u00E9ment \u00E0 modifier\r\n");
+		LId.setBounds(35, 69, 186, 26);
 		JModif.add(LId);
 		
 		TId = new JTextField();
-		TId.setBounds(138, 68, 186, 32);
+		TId.setBounds(236, 69, 57, 26);
 		JModif.add(TId);
 		TId.setColumns(10);
 		
-		JLabel LbelAnnee = new JLabel("Annee");
-		LbelAnnee.setBounds(36, 153, 92, 26);
+		JLabel LbelAnnee = new JLabel("Nouvelle annee\r\n");
+		LbelAnnee.setBounds(46, 128, 116, 26);
 		JModif.add(LbelAnnee);
 		
 		TAnnee = new JTextField();
-		TAnnee.setBounds(138, 150, 186, 32);
+		TAnnee.setBounds(165, 125, 96, 32);
 		JModif.add(TAnnee);
 		TAnnee.setColumns(10);
 		
@@ -169,7 +175,7 @@ public class GestionAnnee extends JFrame {
 		JModif.setVisible(false);
 		
 		JSupp = new JPanel();
-		JSupp.setBounds(519, 93, 290, 228);
+		JSupp.setBounds(308, 77, 290, 228);
 		getContentPane().add(JSupp);
 		JSupp.setLayout(null);
 		
@@ -179,14 +185,18 @@ public class GestionAnnee extends JFrame {
 		BSupp.addActionListener(new BMSuppIdListener());
 		JSupp.add(BSupp);
 		
-		JLabel lbId = new JLabel("ID");
-		lbId.setBounds(112, 44, 92, 26);
+		JLabel lbId = new JLabel("ID de l'annee \u00E0 supprimer");
+		lbId.setBounds(15, 98, 184, 26);
 		JSupp.add(lbId);
 		
 		TIdSupp = new JTextField();
-		TIdSupp.setBounds(71, 96, 186, 32);
+		TIdSupp.setBounds(214, 97, 61, 29);
 		JSupp.add(TIdSupp);
 		TIdSupp.setColumns(10);
+		
+		JLabel lblSupprimerUneAnnee = new JLabel("Supprimer une annee\r\n");
+		lblSupprimerUneAnnee.setBounds(56, 16, 174, 26);
+		JSupp.add(lblSupprimerUneAnnee);
 		JSupp.setVisible(false);
 		
 		JLabel Fond = new JLabel("");

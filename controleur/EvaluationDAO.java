@@ -1,16 +1,20 @@
 package controleur;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import model.*;
 
 public class EvaluationDAO extends DAO<Evaluation>
 {
+	DetailbulletinDAO detailbulletin;
+	ArrayList<Evaluation>TabEvaluation;
 
 	public EvaluationDAO(Connexion m_con) 
 	{
 		super(m_con);
-		// TODO Auto-generated constructor stub
+		detailbulletin=new DetailbulletinDAO(con);
+		TabEvaluation=new ArrayList<Evaluation>();
 	}
 	
 	@Override
@@ -86,9 +90,30 @@ public class EvaluationDAO extends DAO<Evaluation>
 	}
 
 	@Override
-	public void seeAll() {
-		// TODO Auto-generated method stub
-		//
+	public ArrayList seeAll() 
+	{
+		Evaluation b=new Evaluation();
+		String query="SELECT * FROM evaluation";
+		try {
+			con.rset1=con.stmt1.executeQuery(query);
+			while(con.rset1.next())
+			{
+				int id=con.rset1.getInt("id");
+				int iddetail=con.rset1.getInt("detailbulletin_id");
+				int note=con.rset1.getInt("note");
+				String appreciation=con.rset1.getString("appreciation");
+				b=new Evaluation(id,detailbulletin.find(iddetail),note,appreciation);
+				
+				TabEvaluation.add(b);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return TabEvaluation;
 	}
 
 	

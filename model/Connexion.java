@@ -9,9 +9,10 @@ public class Connexion
 	public Connection conn;
     public Statement stmt;
     public Statement stmt1;
+    public Statement stmt2;
     public ResultSet rset;
     public ResultSet rset1;
-    public PreparedStatement pstmt;
+    public ResultSet rset2;
     
     public Connexion() throws SQLException, ClassNotFoundException {
         // chargement driver "com.mysql.jdbc.Driver"
@@ -26,6 +27,7 @@ public class Connexion
         // cr√©ation d'un ordre SQL (statement)
         stmt = conn.createStatement();
         stmt1 = conn.createStatement();
+        stmt2=conn.createStatement();
         
         
         System.out.println("Connexion Ètablie");
@@ -44,7 +46,7 @@ public class Connexion
         // cr√©ation d'un ordre SQL (statement)
         stmt = conn.createStatement();
         stmt1 = conn.createStatement();
-        
+        stmt2=conn.createStatement();
         
         System.out.println("Connexion Ètablie");
     }
