@@ -124,7 +124,9 @@ public class AnneescolaireDAO extends DAO<Anneescolaire>
 			e.printStackTrace();
 		}
 		return tabAnneescolaire;
-		
+	}
+	
+	
 		
 	}
 
