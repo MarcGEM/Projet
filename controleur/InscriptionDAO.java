@@ -1,15 +1,24 @@
 package controleur;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import model.*;
 
 public class InscriptionDAO extends DAO<Inscription>
 {
+	ClasseDAO classe;
+	EleveDAO eleve;
+	ArrayList<Inscription> tabInscription;
+	
 
 	public InscriptionDAO(Connexion m_con) 
 	{
 		super(m_con);
+		
+		classe=new ClasseDAO(con);
+		eleve=new EleveDAO(con);
+		tabInscription=new ArrayList<Inscription>();
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -82,8 +91,31 @@ public class InscriptionDAO extends DAO<Inscription>
 	}
 
 	@Override
-	public void seeAll() {
-		// TODO Auto-generated method stub
+	public ArrayList seeAll() 
+	{
+		Inscription i=new Inscription();
+		String query="SELECT * FROM inscription";
+		try {
+			con.rset1=con.stmt1.executeQuery(query);
+			while(con.rset1.next())
+			{
+				int id=con.rset1.getInt("id");
+				int idclasse=con.rset1.getInt("classe_id");
+				int ideleve=con.rset1.getInt("eleve_id");
+				
+				i=new Inscription(id,classe.find(idclasse),eleve.find(ideleve));
+				
+				tabInscription.add(i);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tabInscription;
+		
 		
 	}
 

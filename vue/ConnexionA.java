@@ -94,6 +94,9 @@ public class ConnexionA extends JFrame {
 				
 				try {
 				con = new Connexion(UrlDataBase,Mdp);
+				Acceuil A = new Acceuil();
+				
+				
 				}catch(Exception d) {
 					d.getMessage();
 					System.out.println("non");

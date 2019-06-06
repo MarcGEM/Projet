@@ -128,7 +128,7 @@ public class AnneescolaireDAO extends DAO<Anneescolaire>
 	
 	
 		
-	}
+}
 
 	
 

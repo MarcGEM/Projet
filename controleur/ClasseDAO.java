@@ -1,14 +1,23 @@
 package controleur;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import model.*;
 
 public class ClasseDAO extends DAO<Classe>
 {
+	ArrayList<Classe>tabClasse;
+	AnneescolaireDAO annee;
+	NiveauDAO niveau;
 
 	public ClasseDAO(Connexion m_con) {
 		super(m_con);
+		tabClasse=new ArrayList<Classe>();
+		annee=new AnneescolaireDAO(con);
+		niveau=new NiveauDAO(con);
+		
+		
 		// TODO Auto-generated constructor stub
 	}
 
@@ -95,9 +104,31 @@ public class ClasseDAO extends DAO<Classe>
 	}
 
 	@Override
-	public void seeAll() 
+	public ArrayList seeAll() 
 	{
-		// TODO Auto-generated method stub
+		Classe c=new Classe();
+		String query="SELECT * FROM classe";
+		try {
+			con.rset1=con.stmt1.executeQuery(query);
+			while(con.rset1.next())
+			{
+				int id=con.rset1.getInt("id");
+				String nom=con.rset1.getString("nom");
+				int idniveau=con.rset1.getInt("niveau_id");
+				int idanneescolaire=con.rset1.getInt("anneescolaire_id");
+				
+				c=new Classe(id,nom,niveau.find(idniveau),annee.find(idanneescolaire));
+				
+				tabClasse.add(c);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tabClasse;
 		
 	}
 	
