@@ -4,8 +4,11 @@ import java.sql.*;
 
 import model.*;
 
+import java.util.ArrayList;
+
 public class NiveauDAO extends DAO<Niveau>
 {
+	private ArrayList<Niveau>tabNiveau;
 
 	public NiveauDAO(Connexion m_con) {
 		super(m_con);
@@ -76,8 +79,25 @@ public class NiveauDAO extends DAO<Niveau>
 	}
 
 	@Override
-	public void seeAll() 
+	public ArrayList seeAll()
 	{
+		Niveau a=new Niveau();
+		String query="SELECT * FROM niveau";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			while(con.rset.next())
+			{
+				a=new Niveau(con.rset.getInt("id"),con.rset.getString("nom"));
+				tabNiveau.add(a);
+			}
+			
+		}catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tabNiveau;
 		// TODO Auto-generated method stub
 		
 	}
