@@ -38,7 +38,7 @@ public abstract class DAO<T>
   
   public abstract void seeAll();
 
-public abstract void visibility(int i);
+
 
 
   

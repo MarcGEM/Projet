@@ -27,7 +27,7 @@ public class Acceuil extends JFrame  {
 	private JPanel L3;
 	private JPanel L4;
 	private JButton btnNewButton;
-	
+	Connexion con;
 	
 
 	public Acceuil() {
@@ -113,7 +113,7 @@ public class Acceuil extends JFrame  {
 			String Mdp = JMdp.getText();
 			String UrlDataBase = nomServer+nomDB;
 			try {
-			Connexion con = new Connexion(UrlDataBase,Mdp);
+			con = new Connexion(UrlDataBase,Mdp);
 			}catch(Exception d) {
 				d.getMessage();
 			}
