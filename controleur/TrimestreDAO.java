@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ import model.*;
 
 public class TrimestreDAO extends DAO<Trimestre> 
 {
+	ArrayList<Trimestre>tabTrimestre;
 	
 	public TrimestreDAO(Connexion m_con) 
 	{
@@ -96,7 +98,9 @@ public class TrimestreDAO extends DAO<Trimestre>
 	}
 
 	@Override
-	public void seeAll() {
+	public ArrayList seeAll() 
+	{
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
