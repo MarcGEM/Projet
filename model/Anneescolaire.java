@@ -20,7 +20,10 @@ public class Anneescolaire
 	}
 
 
-	
+	public int getId()
+	{
+		return id;
+	}
 	
 	public String getAnnee()
 	{
@@ -35,15 +38,6 @@ public class Anneescolaire
 	public void setAnnee(String annee)
 	{
 		this.annee=annee;
-	}
-
-
-
-
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return id;
 	}
 	
 }

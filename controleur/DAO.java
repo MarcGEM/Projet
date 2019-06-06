@@ -39,10 +39,6 @@ public abstract class DAO<T>
   
   public abstract ArrayList seeAll();
 
-public abstract void visibility(int i);
-
-
-  
 }
   
 
