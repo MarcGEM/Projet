@@ -2,10 +2,13 @@ package controleur;
 
 import java.sql.*;
 
+
 import model.*;
+import java.util.ArrayList;
 
 public class EleveDAO extends DAO<Eleve>
 {
+	private ArrayList<Eleve>tabEleve;
 
 	public EleveDAO(Connexion m_con) 
 	{
@@ -75,8 +78,29 @@ public class EleveDAO extends DAO<Eleve>
 	}
 
 	@Override
-	public void seeAll() {
+	public ArrayList seeAll() {
 		// TODO Auto-generated method stub
+		{
+			Eleve a=new Eleve();
+			String query="SELECT * FROM eleve";
+			
+			try {
+				con.rset=con.stmt.executeQuery(query);
+				while(con.rset.next())
+				{
+					a=new Eleve(con.rset.getInt("id"),con.rset.getString("nom"),con.rset.getString("prenom"));
+					tabEleve.add(a);
+				}
+				
+			}catch (SQLException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return tabEleve;
+			// TODO Auto-generated method stub
+			
+		}
 		
 	}
 	
