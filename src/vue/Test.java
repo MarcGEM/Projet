@@ -9,6 +9,7 @@ public class Test {
 
 	public static void main(String[] args) 
 	{
+<<<<<<< HEAD
 
 		/*
 		try {
@@ -18,6 +19,11 @@ public class Test {
 			/*
 
 			//Connexion con = new Connexion();
+=======
+		
+		try {
+			Connexion con = new Connexion();
+>>>>>>> parent of a5e8536... Petit changement
 			
 			//DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
 			//DAO<Anneescolaire> anneescolaireDao = new AnneescolaireDAO(con);
@@ -80,11 +86,15 @@ public class Test {
 			//Niveau n1=niveauDao.find(1);
 			*/
 			//System.out.println(n1.getNom());
+<<<<<<< HEAD
 
 			
 
 			//Accueil ap=new Accueil();
 
+=======
+			Accueil ap=new Accueil();
+>>>>>>> parent of a5e8536... Petit changement
 			
 			
 			
@@ -107,8 +117,12 @@ public class Test {
 		
 			
 			
+<<<<<<< HEAD
 
 			/*
+=======
+			
+>>>>>>> parent of a5e8536... Petit changement
 	      
 		} catch (ClassNotFoundException e) {
 
@@ -125,9 +139,9 @@ public class Test {
 		
 
 	   
-	     */ 
-		Accueil ap=new Accueil();
+	      
 	    }
+<<<<<<< HEAD
 	
 		
 	
@@ -141,6 +155,8 @@ public class Test {
 	}
 	
 
+=======
+>>>>>>> parent of a5e8536... Petit changement
 
 	}
 
