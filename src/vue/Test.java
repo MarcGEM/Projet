@@ -9,8 +9,14 @@ public class Test {
 
 	public static void main(String[] args) 
 	{
+
 		/*
 		try {
+
+		
+		/*try {
+			/*
+
 			//Connexion con = new Connexion();
 			
 			//DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
@@ -34,7 +40,7 @@ public class Test {
 			Eleve e=new Eleve(1,"GEMAYEL","Marc");
 			Inscription i1=new Inscription(1,c,e);
 			Discipline d=new Discipline(1,"Physique");
-			Discipline d2=new Discipline(2,"Mathématique");
+			Discipline d2=new Discipline(2,"MathÃ©matique");
 			Prof luc=new Prof(2,"Skywalker","Luc");
 			Prof jac=new Prof(3,"Landers","Jacques");
 			Inscription ins=new Inscription(1,c,e);
@@ -44,10 +50,10 @@ public class Test {
 			
 			
 			
-			Bulletin b1=new Bulletin(1,t,i1,"Bonne élève");
+			Bulletin b1=new Bulletin(1,t,i1,"Bonne Ã©lÃ¨ve");
 			Detailbulletin d1=new Detailbulletin(1,b1,ens,"Bonne");
 			Detailbulletin de2=new Detailbulletin(2,b1,ens1,"Manque de travail");
-			Evaluation e1=new Evaluation(1,d1,15,"Très bon boulot");
+			Evaluation e1=new Evaluation(1,d1,15,"TrÃ¨s bon boulot");
 			Evaluation e2=new Evaluation(2,d1,16,"Encore");
 			
 			Evaluation e3=new Evaluation(3,de2,8,"Manque de travail");
@@ -55,7 +61,7 @@ public class Test {
 			System.out.println("Bulletin de: "+b1.getInscription().getEleve().getPrenom()+" "+b1.getInscription().getEleve().getNom()+" du "+b1.getTrimestre().getNumero()+" trimestre");
 			System.out.println("moyenne en "+d1.getEnseignement().getDiscipline().getNom()+ " : "+d1.moyenneDiscipline());
 			System.out.println("moyenne en "+de2.getEnseignement().getDiscipline().getNom()+ " : "+de2.moyenneDiscipline());
-			System.out.println("Moyenne général du trimestre: "+b1.moyenneGeneral());
+			System.out.println("Moyenne gÃ©nÃ©ral du trimestre: "+b1.moyenneGeneral());
 			
 			//Anneescolaire a1=anneescolaireDao.find(1);
 			
@@ -72,17 +78,21 @@ public class Test {
 			//System.out.println(ensei1.getClasse().getNom());
 			//Trimestre t1=trimestreDao.find(1);
 			//Niveau n1=niveauDao.find(1);
-			
+			*/
 			//System.out.println(n1.getNom());
+
+			
+
+			//Accueil ap=new Accueil();
+
+			
 			
 			
 			
 			/*
-			
-			
 			Anneescolaire a=new Anneescolaire(1,"2019");
 			
-			;
+			
 			
 			
 			
@@ -93,20 +103,27 @@ public class Test {
 			Prof luc=new Prof(2,"Skywalker","Luc");
 			
 			
-			*/
+		*/
 		
 			
 			
+
 			/*
 	      
 		} catch (ClassNotFoundException e) {
+
+			
+	   
+		/*} catch (ClassNotFoundException e) {
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
+
 	   
 	     */ 
 		Accueil ap=new Accueil();
@@ -114,6 +131,17 @@ public class Test {
 	
 		
 	
+
+	
+		
+		
+		//Acceuil Pacceuil = new Acceuil();
+	   GestionAnnee GA = new GestionAnnee();
+	      
+	}
+	
+
+
 	}
 
 
