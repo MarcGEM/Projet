@@ -111,9 +111,12 @@ public class AnneescolaireDAO extends DAO<Anneescolaire>
 		
 		try {
 			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
 			while(con.rset.next())
 			{
 				 a=new Anneescolaire(con.rset.getInt("id"),con.rset.getString("annee"));
+				
 				 tabAnneescolaire.add(a);
 				
 			}
@@ -124,6 +127,25 @@ public class AnneescolaireDAO extends DAO<Anneescolaire>
 			e.printStackTrace();
 		}
 		return tabAnneescolaire;
+	}
+	
+	
+	public ResultSet Ro() 
+	{
+		
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM anneescolaire";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con.rset ;
 	}
 	
 	

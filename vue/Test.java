@@ -20,13 +20,13 @@ public class Test {
 			
 
 			//con = new Connexion();
-			AnneescolaireDAO bullDao= new AnneescolaireDAO(con);
+			//AnneescolaireDAO bullDao= new AnneescolaireDAO(con);
 			//AnneescolaireDAO classeDao=new AnneescolaireDAO(con);
-			ArrayList<Anneescolaire> c=bullDao.seeAll();
+			//ArrayList<Anneescolaire> c=bullDao.seeAll();
 			
-			System.out.println(c.get(0).getId());
+			//System.out.println(c.get(0).getId());
 			
-			
+			GAnnee g = new GAnnee(con);
 			
 			
 			

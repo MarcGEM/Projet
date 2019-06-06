@@ -22,7 +22,9 @@ public class Acceuil extends JFrame {
 		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
-		JButton button = new JButton("New button");
+		JButton button = new JButton("");
+		button.setBackground(Color.GRAY);
+		button.setIcon(new ImageIcon(Acceuil.class.getResource("/images/Eleve.png")));
 		button.setBounds(28, 57, 141, 135);
 		getContentPane().add(button);
 		
