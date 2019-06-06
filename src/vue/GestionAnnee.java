@@ -7,6 +7,8 @@ import javax.swing.*;
 import controleur.*;
 import model.Anneescolaire;
 import model.Connexion;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class GestionAnnee extends JFrame {
@@ -14,9 +16,13 @@ public class GestionAnnee extends JFrame {
 	private Fenetre GAnnee;
 	private JTextField JTextId;
 	private JTextField JTextAnnee;
-	
+	private JPanel JAjout;
 	private Connexion con;
-	
+	private JTextField TId;
+	private JTextField TAnnee;
+	private JPanel JModif;
+	private JTextField TIdSupp;
+	private JPanel JSupp;
 	
 	
 	
@@ -47,26 +53,59 @@ public class GestionAnnee extends JFrame {
 		JMenu MenuAjouter = new JMenu("Ajouter");
 		menuBar.add(MenuAjouter);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
-		MenuAjouter.add(mntmNewMenuItem);
-		
 		JMenuItem MItemAnnnee = new JMenuItem("Annee");
+		MItemAnnnee.addActionListener(new MItemAnneeListener());
 		MenuAjouter.add(MItemAnnnee);
 		
-		JMenu MeuModifie = new JMenu("Modifier");
-		menuBar.add(MeuModifie);
+		JMenuItem MItemTrimestre = new JMenuItem("Trimestre");
+		MenuAjouter.add(MItemTrimestre);
+		
+		JMenuItem MItemBulletin = new JMenuItem("Bulletin");
+		MenuAjouter.add(MItemBulletin);
+		
+		JMenuItem MItemNiveau = new JMenuItem("Niveau");
+		MenuAjouter.add(MItemNiveau);
+		
+		JMenuItem MItemDiscipline = new JMenuItem("Discipline");
+		MenuAjouter.add(MItemDiscipline);
+		
+		JMenuItem MItemEleve = new JMenuItem("Eleve");
+		MenuAjouter.add(MItemEleve);
+		
+		JMenuItem MItemProf = new JMenuItem("Prof");
+		MenuAjouter.add(MItemProf);
+		
+		JMenuItem MItemInscription = new JMenuItem("Inscription");
+		MenuAjouter.add(MItemInscription);
+		
+		JMenuItem MDetailBulletin = new JMenuItem("Detail Bulletin");
+		MenuAjouter.add(MDetailBulletin);
+		
+		JMenuItem MItemEvaluation = new JMenuItem("Evaluation");
+		MenuAjouter.add(MItemEvaluation);
+		
+		JMenu MenuModifier = new JMenu("Modifier");
+		menuBar.add(MenuModifier);
+		
+		JMenuItem MModifAnnee = new JMenuItem("Annee");
+		MModifAnnee.addActionListener(new MModifierAnneListener());
+		MenuModifier.add(MModifAnnee);
 		
 		JMenu MenuSupprimer = new JMenu("Supprimer");
 		menuBar.add(MenuSupprimer);
 		
+		JMenuItem MSuppAnnee = new JMenuItem("Annee");
+		MenuSupprimer.add(MSuppAnnee);
+		MSuppAnnee.addActionListener(new MSuppAnneeListener());
 		JMenu MenuAide = new JMenu("Aide");
 		menuBar.add(MenuAide);
 		
 		
-		JPanel JAjout = new JPanel();
-		JAjout.setBounds(21, 68, 293, 216);
-		getContentPane().add(JAjout);
+		JAjout = new JPanel();
+		JAjout.setBounds(207, 93, 293, 216);
+		
 		JAjout.setLayout(null);
+		getContentPane().add(JAjout);
 		
 		JLabel lblAjouterUneAnnee = new JLabel("Ajouter une annee");
 		lblAjouterUneAnnee.setBounds(59, 5, 174, 26);
@@ -81,10 +120,6 @@ public class GestionAnnee extends JFrame {
 		JId.setBounds(31, 52, 29, 26);
 		JAjout.add(JId);
 		
-		JLabel LAnnee = new JLabel("Annee");
-		LAnnee.setBounds(21, 114, 59, 26);
-		JAjout.add(LAnnee);
-		
 		JButton JBAdd = new JButton("ADD");
 		JBAdd.setBounds(98, 160, 73, 35);
 		JBAdd.addActionListener(new ButtonAddListener());
@@ -94,6 +129,65 @@ public class GestionAnnee extends JFrame {
 		JTextAnnee.setBounds(98, 111, 186, 32);
 		JAjout.add(JTextAnnee);
 		JTextAnnee.setColumns(10);
+		
+		JLabel LAnnee = new JLabel("Annee");
+		LAnnee.setBounds(21, 117, 59, 26);
+		JAjout.add(LAnnee);
+		JAjout.setVisible(false);
+		
+		JModif = new JPanel();
+		JModif.setBounds(190, 68, 359, 253);
+		getContentPane().add(JModif);
+		JModif.setLayout(null);
+		
+		JLabel lblModifier = new JLabel("MODIFIER");
+		lblModifier.setBounds(99, 10, 151, 26);
+		JModif.add(lblModifier);
+		
+		JLabel LId = new JLabel("ID");
+		LId.setBounds(36, 71, 92, 26);
+		JModif.add(LId);
+		
+		TId = new JTextField();
+		TId.setBounds(138, 68, 186, 32);
+		JModif.add(TId);
+		TId.setColumns(10);
+		
+		JLabel LbelAnnee = new JLabel("Annee");
+		LbelAnnee.setBounds(36, 153, 92, 26);
+		JModif.add(LbelAnnee);
+		
+		TAnnee = new JTextField();
+		TAnnee.setBounds(138, 150, 186, 32);
+		JModif.add(TAnnee);
+		TAnnee.setColumns(10);
+		
+		JButton BModifierId = new JButton("Modifier");
+		BModifierId.setBounds(99, 200, 141, 35);
+		BModifierId.addActionListener(new BModifListenerID());
+		JModif.add(BModifierId);
+		JModif.setVisible(false);
+		
+		JSupp = new JPanel();
+		JSupp.setBounds(519, 93, 290, 228);
+		getContentPane().add(JSupp);
+		JSupp.setLayout(null);
+		
+		
+		JButton BSupp = new JButton("SUPPRIMER");
+		BSupp.setBounds(79, 172, 178, 35);
+		BSupp.addActionListener(new BMSuppIdListener());
+		JSupp.add(BSupp);
+		
+		JLabel lbId = new JLabel("ID");
+		lbId.setBounds(112, 44, 92, 26);
+		JSupp.add(lbId);
+		
+		TIdSupp = new JTextField();
+		TIdSupp.setBounds(71, 96, 186, 32);
+		JSupp.add(TIdSupp);
+		TIdSupp.setColumns(10);
+		JSupp.setVisible(false);
 		
 		JLabel Fond = new JLabel("");
 		Fond.setIcon(new ImageIcon("C:\\Users\\compaore\\eclipse-workspace\\Projet\\images\\Fond2.png"));
@@ -108,9 +202,6 @@ public class GestionAnnee extends JFrame {
 	//methode qui ecoutera le button add
 		class ButtonAddListener implements ActionListener{
 			
-			
-		
-
 			public void actionPerformed(ActionEvent e) {
 				String id = JTextId.getText();
 				Integer s=Integer.valueOf(id);
@@ -126,10 +217,68 @@ public class GestionAnnee extends JFrame {
 						d.getMessage();
 					}
 				
+				}
+			
+		}
+		class BModifListenerID implements ActionListener {
+
+			
+			public void actionPerformed(ActionEvent e) {
+				String id = TId.getText();
+				Integer s=Integer.valueOf(id);
+				String Annee=TAnnee.getText();
+				AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
 				
+				Anneescolaire a=annee1.find(s);
+				a.setAnnee(Annee);
+				annee1.update(a);
+			}
+		}
+		class BMSuppIdListener implements ActionListener{
+			
+			public void actionPerformed(ActionEvent e) {
+				String id = TIdSupp.getText();
+				Integer s=Integer.valueOf(id);
+				AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
 				
+				Anneescolaire a=annee1.find(s);
+				annee1.delete(a);
 				
 			}
 			
 		}
+		
+			
+			
+		class MItemAnneeListener implements ActionListener {
+			
+			public void actionPerformed(ActionEvent e) {
+				JModif.setVisible(false);
+				JAjout.setVisible(true);
+			}
+			
+		}
+		class MModifierAnneListener implements ActionListener{
+		
+			public void actionPerformed(ActionEvent e) {
+			JAjout.setVisible(false);
+			JSupp.setVisible(false);
+			JModif.setVisible(true);
+	
+		}
+		
+		}
+		class MSuppAnneeListener implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			JAjout.setVisible(false);
+			
+			JModif.setVisible(false);
+			JSupp.setVisible(true);
+			
+		}
+	}
 }
+		
+
+
