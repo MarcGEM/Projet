@@ -2,6 +2,7 @@ package controleur;
 
 import model.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 public abstract class DAO<T> 
 {
@@ -36,7 +37,7 @@ public abstract class DAO<T>
   public abstract T find(int id);
   
   
-  public abstract void seeAll();
+  public abstract ArrayList seeAll();
 
 }
   
