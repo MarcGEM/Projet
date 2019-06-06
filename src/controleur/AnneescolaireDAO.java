@@ -40,7 +40,7 @@ public class AnneescolaireDAO extends DAO<Anneescolaire> implements ActionListen
 		// TODO Auto-generated constructor stub
 		frame = new JFrame();
 		frame.setBounds(100, 100, 827, 491);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		

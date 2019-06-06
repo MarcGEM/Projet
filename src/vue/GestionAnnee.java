@@ -26,6 +26,7 @@ public class GestionAnnee extends JFrame {
 		
 		
 		super("Gestion Annee");
+		setResizable(false);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(900,600);
 		//position au centre
@@ -39,9 +40,31 @@ public class GestionAnnee extends JFrame {
 				d.getMessage();
 			}
 		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 894, 40);
+		getContentPane().add(menuBar);
+		
+		JMenu MenuAjouter = new JMenu("Ajouter");
+		menuBar.add(MenuAjouter);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		MenuAjouter.add(mntmNewMenuItem);
+		
+		JMenuItem MItemAnnnee = new JMenuItem("Annee");
+		MenuAjouter.add(MItemAnnnee);
+		
+		JMenu MeuModifie = new JMenu("Modifier");
+		menuBar.add(MeuModifie);
+		
+		JMenu MenuSupprimer = new JMenu("Supprimer");
+		menuBar.add(MenuSupprimer);
+		
+		JMenu MenuAide = new JMenu("Aide");
+		menuBar.add(MenuAide);
+		
 		
 		JPanel JAjout = new JPanel();
-		JAjout.setBounds(21, 21, 293, 216);
+		JAjout.setBounds(21, 68, 293, 216);
 		getContentPane().add(JAjout);
 		JAjout.setLayout(null);
 		
@@ -67,14 +90,15 @@ public class GestionAnnee extends JFrame {
 		JBAdd.addActionListener(new ButtonAddListener());
 		JAjout.add(JBAdd);
 		
-		JLabel Fond = new JLabel("");
-		Fond.setBounds(90, 90, 0, 0);
-		JAjout.add(Fond);
-		
 		JTextAnnee = new JTextField();
 		JTextAnnee.setBounds(98, 111, 186, 32);
 		JAjout.add(JTextAnnee);
 		JTextAnnee.setColumns(10);
+		
+		JLabel Fond = new JLabel("");
+		Fond.setIcon(new ImageIcon("C:\\Users\\compaore\\eclipse-workspace\\Projet\\images\\Fond2.png"));
+		Fond.setBounds(0, 0, 894, 549);
+		getContentPane().add(Fond);
 		
 		this.setVisible(true);
 		
@@ -108,7 +132,4 @@ public class GestionAnnee extends JFrame {
 			}
 			
 		}
-	
-	
-	
 }
