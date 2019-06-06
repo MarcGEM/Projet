@@ -3,6 +3,7 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,10 +15,7 @@ import model.*;
 import java.awt.Font;
 import vue.*;
 
-<<<<<<< HEAD
-public class AnneescolaireDAO extends DAO<Anneescolaire>
-{
-=======
+
 public class AnneescolaireDAO extends DAO<Anneescolaire> 
 {
 
@@ -25,21 +23,20 @@ public class AnneescolaireDAO extends DAO<Anneescolaire>
 	ArrayList<Anneescolaire>tabAnneescolaire;
 	
 	
->>>>>>> 09470b89259eb6478e651b1919bb0c63944f0e08
+
 	
 	public AnneescolaireDAO(Connexion m_con) 
 	{
 		super(m_con);
 		// TODO Auto-generated constructor stub
-<<<<<<< HEAD
-=======
+
 		
 		
 		tabAnneescolaire=new ArrayList<Anneescolaire>();
 		
 			
 		
->>>>>>> 09470b89259eb6478e651b1919bb0c63944f0e08
+
 	}
 
 	@Override
@@ -117,11 +114,7 @@ public class AnneescolaireDAO extends DAO<Anneescolaire>
 	
 	
 	
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 09470b89259eb6478e651b1919bb0c63944f0e08
 }
 	
 
