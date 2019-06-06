@@ -95,6 +95,21 @@ public class Classe
 		this.listeleve.remove(e);
 	}
 	
+	public void setNom(String nom)
+	{
+		this.nom=nom;
+	}
+	
+	public void setNiveau(Niveau n)
+	{
+		this.n=n;
+	}
+	
+	public void setAnneescolaire(Anneescolaire a)
+	{
+		this.a=a;
+	}
+	
 	
 	
 }

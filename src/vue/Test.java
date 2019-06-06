@@ -9,9 +9,9 @@ public class Test {
 
 	public static void main(String[] args) 
 	{
-		
+		/*
 		try {
-			Connexion con = new Connexion();
+			//Connexion con = new Connexion();
 			
 			//DAO<Trimestre> trimestreDao = new TrimestreDAO(con);
 			//DAO<Anneescolaire> anneescolaireDao = new AnneescolaireDAO(con);
@@ -74,7 +74,7 @@ public class Test {
 			//Niveau n1=niveauDao.find(1);
 			
 			//System.out.println(n1.getNom());
-			Accueil ap=new Accueil();
+			
 			
 			
 			/*
@@ -97,7 +97,7 @@ public class Test {
 		
 			
 			
-			
+			/*
 	      
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -108,9 +108,12 @@ public class Test {
 		}
 		
 	   
-	      
+	     */ 
+		Accueil ap=new Accueil();
 	    }
-
+	
+		
+	
 	}
 
 
