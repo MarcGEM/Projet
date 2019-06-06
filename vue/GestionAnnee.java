@@ -135,6 +135,27 @@ public class GestionAnnee extends JFrame {
 		JAjout.add(LAnnee);
 		JAjout.setVisible(false);
 		
+		JSupp = new JPanel();
+		JSupp.setBounds(0, 0, 308, 228);
+		getContentPane().add(JSupp);
+		
+		
+		JButton BSupp = new JButton("SUPPRIMER");
+		BSupp.setBounds(79, 172, 178, 35);
+		BSupp.addActionListener(new BMSuppIdListener());
+		JSupp.setLayout(null);
+		JSupp.add(BSupp);
+		
+		JLabel lbId = new JLabel("ID");
+		lbId.setBounds(112, 45, 92, 26);
+		JSupp.add(lbId);
+		
+		TIdSupp = new JTextField();
+		TIdSupp.setBounds(71, 96, 186, 32);
+		JSupp.add(TIdSupp);
+		TIdSupp.setColumns(10);
+		JSupp.setVisible(false);
+		
 		JModif = new JPanel();
 		JModif.setBounds(190, 68, 359, 253);
 		getContentPane().add(JModif);
@@ -167,27 +188,6 @@ public class GestionAnnee extends JFrame {
 		BModifierId.addActionListener(new BModifListenerID());
 		JModif.add(BModifierId);
 		JModif.setVisible(false);
-		
-		JSupp = new JPanel();
-		JSupp.setBounds(519, 93, 290, 228);
-		getContentPane().add(JSupp);
-		JSupp.setLayout(null);
-		
-		
-		JButton BSupp = new JButton("SUPPRIMER");
-		BSupp.setBounds(79, 172, 178, 35);
-		BSupp.addActionListener(new BMSuppIdListener());
-		JSupp.add(BSupp);
-		
-		JLabel lbId = new JLabel("ID");
-		lbId.setBounds(112, 44, 92, 26);
-		JSupp.add(lbId);
-		
-		TIdSupp = new JTextField();
-		TIdSupp.setBounds(71, 96, 186, 32);
-		JSupp.add(TIdSupp);
-		TIdSupp.setColumns(10);
-		JSupp.setVisible(false);
 		
 		JLabel Fond = new JLabel("");
 		Fond.setIcon(new ImageIcon("C:\\Users\\compaore\\eclipse-workspace\\Projet\\images\\Fond2.png"));

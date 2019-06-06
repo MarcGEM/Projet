@@ -1,6 +1,7 @@
 package controleur;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import model.*;
 
@@ -82,10 +83,12 @@ public class BulletinDAO extends DAO<Bulletin>
 	}
 
 	@Override
-	public void seeAll() {
+	public ArrayList seeAll() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
+
+	
 
 	
 

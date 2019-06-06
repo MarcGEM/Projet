@@ -14,9 +14,10 @@ public class Test {
 
 		
 		
-			GestionAnnee GA = new GestionAnnee();
-	  
-	      
+			//GestionAnnee GA = new GestionAnnee();
+		//ConnexionA A = new ConnexionA();
+		
+	     Acceuil b = new Acceuil() ;
 	    }
 
 

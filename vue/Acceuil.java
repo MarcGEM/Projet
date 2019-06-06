@@ -1,143 +1,81 @@
 package vue;
 
-import java.awt.*;
+import java.awt.Color;
 
 import javax.swing.*;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import model.Connexion;
-
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;;
+import java.awt.event.ActionEvent;
 
-public class Acceuil extends JFrame  {
-	
-	
-	private Fenetre Acceuil;
-	private Label Label1;
-	private Label Label2;
-	private Label Label3;
-	private JTextField JText1;
-	private JTextField JText2;
-	private JButton ButtonCo ;
-	private JButton ButtonCo1 ;
-	private JPasswordField JMdp;
-	private JPanel L1;
-	private JPanel L2;
-	private JPanel L3;
-	private JPanel L4;
-	private JButton btnNewButton;
-	Connexion con;
-	
+public class Acceuil extends JFrame {
 
-	public Acceuil() {
-		
-		try {
-			UIManager.setLookAndFeel(new NimbusLookAndFeel());
-		}catch(Exception e){
-			e.getMessage();
-		}
-		
-		
-		Acceuil = new Fenetre();
-		Acceuil.setTitle("Page d'Acceuil");
-		Label1= new Label("Nom Serveur");
-		Label1.setAlignment(Label.CENTER);
-		Label2= new Label("Nom DB");
-		L1= new JPanel();
-		L2= new JPanel();
-		L3= new JPanel();
-		L4= new JPanel();
-		JText1 = new JTextField("Nom Serveur");
-		JText1.setColumns(10);
-		JText2 = new JTextField("Nom DB");
-		JText2.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		JMdp = new JPasswordField("MDP");
-		ButtonCo = new JButton("connexion");
-		ButtonCo.addActionListener(new ButtonCo1Listener());
-		ButtonCo1 = new JButton("co");
-		ButtonCo1.addActionListener(new ButtonCo2Listener());
-		
-		
-		
-		
-		L1.add(Label1);
-		L1.add(JText1);
-		
-		
-		L2.add(Label2);
-		L2.add(JText2);
-		
-		
-		Label3= new Label("Mdp");
-		L3.add(Label3);
-		L3.add(JMdp);
-		
-		
-		
-		
-		//L4.add(L2);
-		//L4.add(L3);
-		L4.add(ButtonCo);
-		//L4.add(new JButton("ok"));
+	private Connexion con;
 	
-		
-		/*
-		Acceuil.getContentPane().add(Label1);
-		Acceuil.getContentPane().add(JText1);
-		Acceuil.getContentPane().add(Label2);
-		Acceuil.getContentPane().add(JText2);
-		Acceuil.getContentPane().add(Label3);
-		Acceuil.getContentPane().add(JMdp);
-		Acceuil.getContentPane().add(ButtonCo);
-		Acceuil.getContentPane().add(ButtonCo1);*/
-		Acceuil.getContentPane().add(L1);
-		Acceuil.getContentPane().add(L2);
-		Acceuil.getContentPane().add(L3);
-		Acceuil.getContentPane().add(L4);
-		
-		
-		Acceuil.setVisible(true);
-
-		
 	
-		//Acceuil.getContentPane().add(new JButton("Connexion"));
-	
-	}
-	//methode qui ecoutera le button1
-	class ButtonCo1Listener implements ActionListener{
-
-		public void actionPerformed(ActionEvent e) {
-			String nomServer = JText1.getText();
-			String nomDB=JText2.getText();
-			String Mdp = JMdp.getText();
-			String UrlDataBase = nomServer+nomDB;
-			try {
-			con = new Connexion(UrlDataBase,Mdp);
-			}catch(Exception d) {
-				d.getMessage();
-			}
-			
-			System.out.println(UrlDataBase);
-			System.out.println(Mdp);
-			
-			
-		}
+	public  Acceuil() {
+		super("Acceuil");
+		getContentPane().setForeground(Color.BLACK);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setSize(735,580);
+		//position au centre
+		this.setLocationRelativeTo(null);
+		getContentPane().setLayout(null);
+		
+		JButton btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.setBounds(351, 57, 141, 135);
+		getContentPane().add(btnNewButton_2);
+		
+		JButton button = new JButton("New button");
+		button.setBounds(513, 57, 141, 135);
+		getContentPane().add(button);
+		
+		JButton button_1 = new JButton("New button");
+		button_1.setBounds(28, 216, 141, 135);
+		getContentPane().add(button_1);
+		
+		JButton button_2 = new JButton("New button");
+		button_2.setBounds(28, 57, 141, 135);
+		getContentPane().add(button_2);
+		
+		JButton button_3 = new JButton("New button");
+		button_3.setBounds(190, 216, 141, 135);
+		getContentPane().add(button_3);
+		
+		JButton button_4 = new JButton("New button");
+		button_4.setBounds(190, 57, 141, 135);
+		getContentPane().add(button_4);
+		
+		JButton button_5 = new JButton("New button");
+		button_5.setBounds(351, 216, 141, 135);
+		getContentPane().add(button_5);
+		
+		JButton button_6 = new JButton("New button");
+		button_6.setBounds(513, 216, 141, 135);
+		getContentPane().add(button_6);
+		
+		JButton button_7 = new JButton("New button");
+		button_7.setBounds(28, 370, 141, 135);
+		getContentPane().add(button_7);
+		
+		JButton button_8 = new JButton("New button");
+		button_8.setBounds(190, 373, 141, 135);
+		getContentPane().add(button_8);
+		
+		JButton button_9 = new JButton("New button");
+		button_9.setBounds(351, 372, 141, 135);
+		getContentPane().add(button_9);
+		
+		JButton button_10 = new JButton("New button");
+		button_10.setBounds(513, 372, 141, 135);
+		getContentPane().add(button_10);
+		setResizable(false);
+		
+		this.setVisible(true);
+		
+		
+		
+		
 		
 	}
-	
-	//methode qui ecoutera le button2
-	class ButtonCo2Listener implements ActionListener{
-
-		public void actionPerformed(ActionEvent e) {
-			
-			System.out.println("ok2");
-			
-		}
-		
-	}
-	
-	
-
-	
 }
