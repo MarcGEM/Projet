@@ -4,8 +4,11 @@ import java.sql.*;
 
 import model.*;
 
+import java.util.ArrayList;
+
 public class ProfDAO extends DAO<Prof>
 {
+	private ArrayList<Prof>tabProf;
 
 	public ProfDAO(Connexion m_con) 
 	{
@@ -75,10 +78,34 @@ public class ProfDAO extends DAO<Prof>
 	}
 
 	@Override
-	public void seeAll() {
+	public ArrayList seeAll() {
 		// TODO Auto-generated method stub
-		
+	
+		{
+			Prof a=new Prof();
+			String query="SELECT * FROM prof";
+			
+			try {
+				con.rset=con.stmt.executeQuery(query);
+				while(con.rset.next())
+				{
+					a=new Prof(con.rset.getInt("id"),con.rset.getString("nom"),con.rset.getString("prenom"));
+					tabProf.add(a);
+				}
+				
+			}catch (SQLException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return tabProf;
+			// TODO Auto-generated method stub
+			
+		}
 	}
+	}
+		
+	
 	
 	
 	
@@ -86,4 +113,3 @@ public class ProfDAO extends DAO<Prof>
 	
 
 		
-}
