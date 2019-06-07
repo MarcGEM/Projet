@@ -14,6 +14,7 @@ import model.Connexion;
 import net.proteanit.sql.DbUtils;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class GAnnee extends JFrame{
     private AnneescolaireDAO Annee;
@@ -35,7 +36,7 @@ public class GAnnee extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(298, 0, 536, 221);
+		panel.setBounds(298, 0, 536, 263);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -44,12 +45,7 @@ public class GAnnee extends JFrame{
 		panel.add(scrollPane);
 		
 		table = new JTable();
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				Deplace();
-			}
-		});
+		table.addMouseListener(new MouseAdapter() );
 		scrollPane.setViewportView(table);
 		
 		JButton btnAfficher = new JButton("Afficher");
@@ -78,6 +74,21 @@ public class GAnnee extends JFrame{
 		JLabel lblInfos = new JLabel("INFOS");
 		lblInfos.setBounds(109, 55, 92, 26);
 		getContentPane().add(lblInfos);
+		
+		JButton btnAdd = new JButton("Ajouter");
+		btnAdd.addActionListener(new ButtonAddListener());
+		btnAdd.setBounds(10, 228, 133, 35);
+		getContentPane().add(btnAdd);
+		
+		JButton btnModif = new JButton("Modifier");
+		btnModif.setBounds(164, 228, 123, 35);
+		btnModif.addActionListener(new BModifListenerAnnee());
+		getContentPane().add(btnModif);
+		
+		JButton btnSupp = new JButton("Supprimer");
+		btnSupp.setBounds(83, 284, 141, 35);
+		btnSupp.addActionListener(new BSuppIdListener());
+		getContentPane().add(btnSupp);
 		
 		JLabel lblFond = new JLabel("");
 		lblFond.setBounds(0, 0, 834, 600);
@@ -112,9 +123,60 @@ public class GAnnee extends JFrame{
 		
 	}
 	
+	//class pour repondre au clic de la souris
+	class MouseAdapter implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			Deplace();
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
 	
 	
+	//methode qui ecoutera le button add
+		class ButtonAddListener implements ActionListener{
+				
+				public void actionPerformed(ActionEvent e) {
+					String id = textFieldId.getText();
+					Integer s=Integer.valueOf(id);
+					String Annee=textFieldAnnee.getText();
+					AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+					Anneescolaire a=new Anneescolaire(s,Annee);
+					annee1.create(a);
+					
+					
+					}
+				
+			}
 	
+	
+	//class pour repondre au boutton afficher
 	class BtAfficherListener implements ActionListener {
 
 		@Override
@@ -127,4 +189,38 @@ public class GAnnee extends JFrame{
 		}
 		
 	}
+	
+	
+	//class pour modifier
+	class BModifListenerAnnee implements ActionListener {
+
+		
+		public void actionPerformed(ActionEvent e) {
+			String id = textFieldId.getText();
+			Integer s=Integer.valueOf(id);
+			String Annee=textFieldAnnee.getText();
+			AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+			
+			Anneescolaire a=annee1.find(s);
+			a.setAnnee(Annee);
+			annee1.update(a);
+		}
+	}
+	
+	class BSuppIdListener implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e) {
+			String id = textFieldId.getText();
+			Integer s=Integer.valueOf(id);
+			AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+			
+			Anneescolaire a=annee1.find(s);
+			annee1.delete(a);
+			
+		}
+		
+	}
+	
+	
+	
 }
