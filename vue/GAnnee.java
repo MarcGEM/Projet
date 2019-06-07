@@ -99,7 +99,7 @@ public class GAnnee extends JFrame{
 		ArrayList<Anneescolaire> c=Annee.seeAll();
 		String title[]= {"Id","Annee"};
 		setResizable(false);
-		
+		//oupsi
 		
 		
 		this.setVisible(true);
