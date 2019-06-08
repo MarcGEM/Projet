@@ -41,6 +41,7 @@ public class GTrimestre extends JFrame {
 	    
 		public GTrimestre(Connexion con)  {
 			super("Gestion Annee");
+			setTitle("Gestion Trimestre");
 			getContentPane().setForeground(Color.BLACK);
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			this.setSize(840,651);
@@ -98,12 +99,12 @@ public class GTrimestre extends JFrame {
 			
 			JButton btnModif = new JButton("Modifier");
 			btnModif.setBounds(179, 417, 123, 35);
-			//btnModif.addActionListener(new BModifListenerAnnee());
+			btnModif.addActionListener(new BModifListenerAnnee());
 			getContentPane().add(btnModif);
 			
 			JButton btnSupp = new JButton("Supprimer");
 			btnSupp.setBounds(97, 492, 141, 35);
-			//btnSupp.addActionListener(new BSuppIdListener());
+			btnSupp.addActionListener(new BSuppIdListener());
 			getContentPane().add(btnSupp);
 			
 			JLabel lblNewLabel_2 = new JLabel("Debut");
@@ -114,19 +115,10 @@ public class GTrimestre extends JFrame {
 			lblNewLabel_3.setBounds(18, 271, 92, 26);
 			getContentPane().add(lblNewLabel_3);
 			
-			 dateChooserDebut = new JDateChooser();
+			dateChooserDebut = new JDateChooser();
 			dateChooserDebut.setDateFormatString(" yyyy-MM-dd");
 			dateChooserDebut.setBounds(130, 207, 155, 32);
-			
-			 try {
-				 String date = "2016-11-23";
-			 Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-			 dateChooserDebut.setDate(date2);
-			 }catch(Exception e) {
-				 e.getMessage();
-			 }
-			
-			System.out.println(dateChooserDebut.getDate());
+	
 			getContentPane().add(dateChooserDebut);
 			
 			 dateChooserFin = new JDateChooser();
@@ -177,6 +169,17 @@ public class GTrimestre extends JFrame {
 				
 				textFieldId.setText(String.valueOf(t.getId()));
 				textFieldAnnee.setText(String.valueOf(t.getAnneescolaire().getId()));
+				 
+				//conversion des date
+				Date dateDebut = new SimpleDateFormat("yyyy-MM-dd").parse(t.getDebut());
+				dateChooserDebut.setDate(dateDebut);
+				
+				Date dateFin = new SimpleDateFormat("yyyy-MM-dd").parse(t.getFin());
+				dateChooserFin.setDate(dateFin);
+				
+				textFieldNumero.setText(String.valueOf(t.getNumero()));
+				
+				
 				
 						
 			}catch(Exception e) {
@@ -222,51 +225,48 @@ public class GTrimestre extends JFrame {
 		
 		
 		//methode qui ecoutera le button add
-			class ButtonAddListener implements ActionListener{
+		class ButtonAddListener implements ActionListener{
 					
-					public void actionPerformed(ActionEvent e) {
-						//recuperatio des donnes
-						try {
-						SimpleDateFormat formater=new SimpleDateFormat("yyyy-MM-dd");
-						String id = textFieldId.getText();
-						Integer s=Integer.valueOf(id);
-						String idAnnee=textFieldAnnee.getText();
-						Integer v=Integer.valueOf(idAnnee);
+				public void actionPerformed(ActionEvent e) {
+					//recuperatio des donnes
+					try {
+					SimpleDateFormat formater=new SimpleDateFormat("yyyy-MM-dd");
+					Anneescolaire a=new Anneescolaire();
+					String id = textFieldId.getText();
+					Integer s=Integer.valueOf(id);
+					String idAnnee=textFieldAnnee.getText();
+					Integer v=Integer.valueOf(idAnnee);
 						
 						Date date = dateChooserDebut.getDate();
 						
 						String dateDebut=formater.format(date);
-						System.out.println(dateDebut);
 						
-
 						Date date1 = dateChooserFin.getDate();
 						String dateFin=formater.format(date1);
-						System.out.println(dateFin);
 						
 						String numero = textFieldNumero.getText();
 						Integer c=Integer.valueOf(numero);
 						
 						AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
 						//recherche l'annee coresspondante
-						Anneescolaire a=annee1.find(v);
-						//initialisation d'un trimestre
-						Trimestre trimestre = new Trimestre(s,c,dateDebut,dateFin,a);
-						TrimestreDAO trimestreDAO= new TrimestreDAO(con);
+						try {
+						 a=annee1.find(v);
+						 }catch(Exception u) {
+							ta.showMessageDialog(ta, "Erreur veuillez creer ou utiliser une annee existane","Erreur",ta.WARNING_MESSAGE);	
+						 }
+					Trimestre trimestre = new Trimestre(s,c,dateDebut,dateFin,a);
+					TrimestreDAO trimestreDAO= new TrimestreDAO(con);
+					
+						
+					trimestreDAO.create(trimestre);
+					 
 						
 						
-							trimestreDAO.create(trimestre);
-							}catch(Exception to) {
+					}catch(Exception to) {
 
 								ta.showMessageDialog(ta, "Erreur veuillez ressayer ou remplir tous les champs","Erreur",ta.WARNING_MESSAGE);
 							}
-						//trimestreDAO.create(trimestre);
 						
-						
-						
-						/*
-						AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
-						Anneescolaire a=new Anneescolaire(s,Annee);
-						annee1.create(a);*/
 						
 						
 						}
@@ -280,11 +280,9 @@ public class GTrimestre extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				ResultSet rs =trimestre.Ro();
-				System.out.println("ok");
-				table.setModel(DbUtils.resultSetToTableModel(rs));
+				table.setModel(DbUtils.resultSetToTableModel(rs));	
 				AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
 				ResultSet rs1 =annee1.Ro();
-				System.out.println("ok");
 				table_1.setModel(DbUtils.resultSetToTableModel(rs1));
 				
 			}
@@ -297,14 +295,35 @@ public class GTrimestre extends JFrame {
 
 			
 			public void actionPerformed(ActionEvent e) {
+				
+				SimpleDateFormat formater=new SimpleDateFormat("yyyy-MM-dd");
+				Anneescolaire a=new Anneescolaire();
 				String id = textFieldId.getText();
 				Integer s=Integer.valueOf(id);
-				String Annee=textFieldAnnee.getText();
-				AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+				String idAnnee=textFieldAnnee.getText();
+				Integer v=Integer.valueOf(idAnnee);
+				Date date = dateChooserDebut.getDate();
+				String dateDebut=formater.format(date);
 				
-				Anneescolaire a=annee1.find(s);
-				a.setAnnee(Annee);
-				annee1.update(a);
+				Date date1 = dateChooserFin.getDate();
+				String dateFin=formater.format(date1);
+				
+				String numero = textFieldNumero.getText();
+				Integer c=Integer.valueOf(numero);
+
+				AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+				//recherche l'annee coresspondante
+				try {
+				 a=annee1.find(v);
+				 }catch(Exception u) {
+					ta.showMessageDialog(ta, "Erreur veuillez creer ou utiliser une annee existane","Erreur",ta.WARNING_MESSAGE);	
+				 }
+				
+				Trimestre trimestre = new Trimestre(s,c,dateDebut,dateFin,a);
+				TrimestreDAO trimestreDAO= new TrimestreDAO(con);
+				trimestreDAO.create(trimestre);
+				
+		
 			}
 		}
 		
@@ -313,11 +332,12 @@ public class GTrimestre extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String id = textFieldId.getText();
 				Integer s=Integer.valueOf(id);
-				AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+				TrimestreDAO trimestreDAO= new TrimestreDAO(con);
+				Trimestre trimestre = trimestreDAO.find(s);
 				
-				Anneescolaire a=annee1.find(s);
-				annee1.delete(a);
+				trimestreDAO.delete(trimestre);
 				
+
 			}
 			
 		}
