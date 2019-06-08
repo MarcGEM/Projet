@@ -132,4 +132,22 @@ public class ClasseDAO extends DAO<Classe>
 		
 	}
 	
+	public ResultSet Ro() 
+	{
+		
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM classe";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con.rset ;
+	}
+	
 }

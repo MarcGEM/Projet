@@ -27,8 +27,8 @@ public class Test {
 			//System.out.println(c.get(0).getId());
 			
 
-			GTrimestre g = new GTrimestre(con);
-			
+			//GTrimestre g = new GTrimestre(con);
+			GClasse g= new GClasse(con);
 			
 
 			//GDiscipline g = new GDiscipline(con);

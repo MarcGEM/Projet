@@ -321,7 +321,7 @@ public class GTrimestre extends JFrame {
 				
 				Trimestre trimestre = new Trimestre(s,c,dateDebut,dateFin,a);
 				TrimestreDAO trimestreDAO= new TrimestreDAO(con);
-				trimestreDAO.create(trimestre);
+				trimestreDAO.update(trimestre);
 				
 		
 			}
