@@ -22,6 +22,7 @@ import controleur.TrimestreDAO;
 import model.Anneescolaire;
 import model.Classe;
 import model.Connexion;
+import model.Niveau;
 import model.Trimestre;
 import net.proteanit.sql.DbUtils;
 import vue.GTrimestre.BModifListenerAnnee;
@@ -48,7 +49,7 @@ public class GClasse extends JFrame {
 	    
 		public GClasse(Connexion con)  {
 			super("Gestion Annee");
-			setTitle("Gestion Trimestre");
+			setTitle("Gestion Classe");
 			getContentPane().setForeground(Color.BLACK);
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			this.setSize(840,651);
@@ -100,18 +101,18 @@ public class GClasse extends JFrame {
 			
 			JButton btnAdd = new JButton("Ajouter");
 
-			//btnAdd.addActionListener(new ButtonAddListener());
+			btnAdd.addActionListener(new ButtonAddListener());
 			btnAdd.setBounds(18, 365, 133, 35);
 			getContentPane().add(btnAdd);
 			
 			JButton btnModif = new JButton("Modifier");
 			btnModif.setBounds(172, 365, 123, 35);
-			//btnModif.addActionListener(new BModifListenerAnnee());
+			btnModif.addActionListener(new BModifListenerClasse());
 			getContentPane().add(btnModif);
 			
 			JButton btnSupp = new JButton("Supprimer");
 			btnSupp.setBounds(96, 421, 141, 35);
-			//btnSupp.addActionListener(new BSuppIdListener());
+			btnSupp.addActionListener(new BSuppIdListener());
 			getContentPane().add(btnSupp);
 			
 			JScrollPane scrollPane_1 = new JScrollPane();
@@ -243,9 +244,101 @@ public class GClasse extends JFrame {
 					
 				}
 		
+				//methode qui ecoutera le button add
+				class ButtonAddListener implements ActionListener{
+							
+						public void actionPerformed(ActionEvent e) {
+							//recuperatio des donnes
+							try {
+							
+							Anneescolaire a=new Anneescolaire();
+							Niveau n= new Niveau();
+							
+							String id = textFieldId.getText();
+							Integer s=Integer.valueOf(id);
+							String Nom=textFieldNom.getText();
+							String idNiveau=textFieldIdNiveau.getText();
+							String idAnnee=textFieldIdAnnee.getText();
+							
+								
+								AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+								NiveauDAO niveau1= new NiveauDAO(con);
+								//recherche l'annee coresspondante
+								try {
+								 a=annee1.find(Integer.valueOf(idAnnee));
+								 n=niveau1.find(Integer.valueOf(idNiveau));
+								 }catch(Exception u) {
+									ta.showMessageDialog(ta, "Erreur veuillez creer ou utiliser une annee existane","Erreur",ta.WARNING_MESSAGE);	
+								 }
+							
+								ClasseDAO classeDAO = new ClasseDAO(con);
+								Classe classe = new Classe(s,Nom,n,a);
+								classeDAO.create(classe);
+							
+							 
+								
+								
+							}catch(Exception to) {
+
+										ta.showMessageDialog(ta, "Erreur veuillez ressayer ou remplir tous les champs","Erreur",ta.WARNING_MESSAGE);
+									}
+								
+								
+								
+								}
+							
+						}
+				
+				//class pour modifier
+		class BModifListenerClasse implements ActionListener {
+
+					
+					public void actionPerformed(ActionEvent e) {
+						
+					
+						Anneescolaire a=new Anneescolaire();
+						Niveau n= new Niveau();
+						String id = textFieldId.getText();
+						Integer s=Integer.valueOf(id);
+						String Nom=textFieldNom.getText();
+						//Integer v=Integer.valueOf(idAnnee);
+						String idNiveau=textFieldIdNiveau.getText();
+						String idAnnee=textFieldIdAnnee.getText();
+						
+						
+						
+
+						AnneescolaireDAO annee1 = new AnneescolaireDAO(con);
+						NiveauDAO niveau1= new NiveauDAO(con);
+						//recherche l'annee coresspondante
+						try {
+						 a=annee1.find(Integer.valueOf(idAnnee));
+						 n=niveau1.find(Integer.valueOf(idNiveau));
+						 }catch(Exception u) {
+							ta.showMessageDialog(ta, "Erreur veuillez creer ou utiliser une annee existane","Erreur",ta.WARNING_MESSAGE);	
+						 }
+					
+						ClasseDAO classeDAO = new ClasseDAO(con);
+						Classe classe = new Classe(s,Nom,n,a);
+						classeDAO.update(classe);
+					
+						
+					}
+				}
 		
-		
-		
-		
+		class BSuppIdListener implements ActionListener{
+			
+			public void actionPerformed(ActionEvent e) {
+				String id = textFieldId.getText();
+				Integer s=Integer.valueOf(id);
+				ClasseDAO classeDAO= new ClasseDAO(con);
+				Classe classe = classeDAO.find(s);
+				
+				classeDAO.delete(classe);
+				
+
+			}
+			
+		}
 		
 }
