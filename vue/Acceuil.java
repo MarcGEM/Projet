@@ -135,7 +135,8 @@ public class Acceuil extends JFrame implements ActionListener {
 		
 		if(e.getSource()==classe)
 		{
-			//en attente 
+			GClasse g=new GClasse(con);
+			this.setVisible(false);
 		}
 		if(e.getSource()==discipline)
 		{
@@ -156,7 +157,8 @@ public class Acceuil extends JFrame implements ActionListener {
 		
 		if(e.getSource()==enseignement)
 		{
-			//en atente
+			GEnseignement g=new GEnseignement(con);
+			this.setVisible(false);
 		}
 		
 		if(e.getSource()==inscription)

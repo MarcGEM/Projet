@@ -25,6 +25,7 @@ import model.Connexion;
 import model.Niveau;
 import model.Trimestre;
 import net.proteanit.sql.DbUtils;
+import vue.GDiscipline.BtMenu;
 import vue.GTrimestre.BModifListenerAnnee;
 import vue.GTrimestre.BSuppIdListener;
 import vue.GTrimestre.BtAfficherListener;
@@ -139,6 +140,7 @@ public class GClasse extends JFrame {
 			lblNewLabel_3.setBounds(18, 263, 92, 26);
 			getContentPane().add(lblNewLabel_3);
 			
+			
 			textFieldIdAnnee = new JTextField();
 			textFieldIdAnnee.setBounds(131, 258, 146, 32);
 			getContentPane().add(textFieldIdAnnee);
@@ -155,6 +157,11 @@ public class GClasse extends JFrame {
 			lblNewLabel_4.setBounds(644, 290, 92, 26);
 			getContentPane().add(lblNewLabel_4);
 			this.con=con;
+			
+			JButton btnMenu = new JButton("Menu");
+			btnMenu.setBounds(421, 0, 115, 29);
+			btnMenu.addActionListener(new BtMenu());
+			panel.add(btnMenu);
 			
 			Annee= new AnneescolaireDAO(con);
 			ArrayList<Anneescolaire> c=Annee.seeAll();
@@ -339,6 +346,15 @@ public class GClasse extends JFrame {
 
 			}
 			
+		}
+		
+		class BtMenu implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				Acceuil a=new Acceuil();
+				GClasse.this.setVisible(false);
+			}
 		}
 		
 }

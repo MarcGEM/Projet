@@ -25,25 +25,9 @@ public class Test {
 			System.out.print(b.moyenneDetail(1));
 
 			
-			//con = new Connexion();
-			//AnneescolaireDAO bullDao= new AnneescolaireDAO(con);
-			//AnneescolaireDAO classeDao=new AnneescolaireDAO(con);
-			//ArrayList<Anneescolaire> c=bullDao.seeAll();
-			
-			//System.out.println(c.get(0).getId());
-			
-
-			//GTrimestre g = new GTrimestre(con);
 			
 			
 
-			//GClasse g= new GClasse(con);
-			//GEnseignement g = new GEnseignement(con);
-			//GProf g= new GProf(con);
-
-			//GDiscipline g = new GDiscipline(con);
-			//GEvaluation g=new GEvaluation(con);
-			//GInscription g=new GInscription(con);
 
 			
 			
