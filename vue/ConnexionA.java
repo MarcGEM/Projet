@@ -15,6 +15,7 @@ public class ConnexionA extends JFrame {
 	private JPasswordField passwordField;
 	private Connexion con;
 	private JOptionPane a=new JOptionPane();
+	private JTextField textField_2;
 	
 	
 	public ConnexionA() {
@@ -50,11 +51,11 @@ public class ConnexionA extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("MDP");
-		lblNewLabel_3.setBounds(58, 157, 92, 26);
+		lblNewLabel_3.setBounds(58, 205, 92, 26);
 		getContentPane().add(lblNewLabel_3);
 		
 		JButton btnConnexion = new JButton("Connexion");
-		btnConnexion.setBounds(150, 223, 141, 35);
+		btnConnexion.setBounds(150, 250, 141, 35);
 		btnConnexion.addActionListener(new ButtonCoListener());
 		getContentPane().add(btnConnexion);
 		
@@ -64,7 +65,7 @@ public class ConnexionA extends JFrame {
 		getContentPane().add(LblFond);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(238, 154, 186, 32);
+		passwordField.setBounds(238, 202, 186, 32);
 		getContentPane().add(passwordField);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -77,7 +78,17 @@ public class ConnexionA extends JFrame {
 		lblNewLabel_5.setBounds(432, 157, 26, 26);
 		getContentPane().add(lblNewLabel_5);
 		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(238, 149, 186, 32);
+		getContentPane().add(textField_2);
+		
+		JLabel lblLogin = new JLabel("Login\r\n");
+		lblLogin.setBounds(58, 157, 92, 26);
+		getContentPane().add(lblLogin);
+		
 		this.setVisible(true);
+		
 		
 	}
 	
@@ -87,14 +98,14 @@ public class ConnexionA extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String nomServer = textField.getText();
 				String nomDB=textField_1.getText();
+				String login=textField_2.getText();
 				String Mdp = passwordField.getText();
-				String UrlDataBase = nomServer+nomDB;
-				
 				
 				
 				try {
-				con = new Connexion(UrlDataBase,Mdp);
+				con = new Connexion(nomDB,nomServer,login,Mdp);
 				Acceuil A = new Acceuil();
+				ConnexionA.this.setVisible(false);
 				
 				
 				}catch(Exception d) {
@@ -104,8 +115,7 @@ public class ConnexionA extends JFrame {
 					a.showMessageDialog(a, "Erreur veuillez ressaisir","Erreur Connexion",a.WARNING_MESSAGE);
 				}
 				
-				System.out.println(UrlDataBase);
-				System.out.println(Mdp);
+				
 				
 				
 			}

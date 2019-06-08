@@ -15,10 +15,16 @@ public class Test {
 			
 			con=new Connexion();
 			
+			//ConnexionA ad=new ConnexionA();
+			DetailbulletinDAO d=new DetailbulletinDAO(con);
 			
+			System.out.println(d.moyenneDiscipline(1));
 			
+			BulletinDAO b=new BulletinDAO(con);
 			
+			System.out.print(b.moyenneDetail(1));
 
+			
 			//con = new Connexion();
 			//AnneescolaireDAO bullDao= new AnneescolaireDAO(con);
 			//AnneescolaireDAO classeDao=new AnneescolaireDAO(con);
@@ -27,7 +33,7 @@ public class Test {
 			//System.out.println(c.get(0).getId());
 			
 
-			GTrimestre g = new GTrimestre(con);
+			//GTrimestre g = new GTrimestre(con);
 			
 			
 

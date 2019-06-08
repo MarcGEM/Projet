@@ -53,6 +53,11 @@ public class GAnnee extends JFrame{
 		btnAfficher.addActionListener(new BtAfficherListener());
 		panel.add(btnAfficher);
 		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(421, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
+		
 		JLabel lblNewLabel = new JLabel("ID");
 		lblNewLabel.setBounds(18, 102, 92, 26);
 		getContentPane().add(lblNewLabel);
@@ -221,6 +226,13 @@ public class GAnnee extends JFrame{
 		
 	}
 	
-	
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GAnnee.this.setVisible(false);
+		}
+	}
 	
 }

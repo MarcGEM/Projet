@@ -17,7 +17,6 @@ public class Bulletin
 		this.t=t;
 		this.i=i;
 		this.appreciation=appreciation;
-		tabDetail=new ArrayList<Detailbulletin>();
 	}
 	
 	

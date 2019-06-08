@@ -9,6 +9,7 @@ public class Detailbulletin
 	private Enseignement ens;
 	private String appreciation;
 	private ArrayList<Evaluation>tabEval;
+	private double moyenne;
 	
 	
 	public Detailbulletin(int id,Bulletin b,Enseignement ens,String appreciation)
@@ -18,7 +19,7 @@ public class Detailbulletin
 		this.ens=ens;
 		this.appreciation=appreciation;
 		tabEval=new ArrayList<Evaluation>();
-		b.AjouterDetail(this);
+		
 		
 	}
 	
@@ -74,6 +75,15 @@ public class Detailbulletin
 		return tabEval;
 	}
 	
+	public double getMoyenne()
+	{
+		return moyenne;
+	}
+	
+	public void setMoyenne(double moyenne)
+	{
+		this.moyenne=moyenne;
+	}
 	
 	
 }

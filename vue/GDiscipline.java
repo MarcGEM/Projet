@@ -12,6 +12,8 @@ import controleur.*;
 import model.*;
 import model.Connexion;
 import net.proteanit.sql.DbUtils;
+import vue.GNiveau.BtMenu;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -56,6 +58,12 @@ public class GDiscipline extends JFrame{
 		JLabel lblNewLabel = new JLabel("ID");
 		lblNewLabel.setBounds(18, 102, 92, 26);
 		getContentPane().add(lblNewLabel);
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(421, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
+		
 		
 		textFieldId = new JTextField();
 		textFieldId.setBounds(131, 99, 146, 32);
@@ -217,6 +225,15 @@ public class GDiscipline extends JFrame{
 			
 		}
 		
+	}
+	
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GDiscipline.this.setVisible(false);
+		}
 	}
 	
 	

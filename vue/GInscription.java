@@ -11,6 +11,8 @@ import javax.swing.*;
 import controleur.*;
 import model.*;
 import net.proteanit.sql.DbUtils;
+import vue.GEleve.BtMenu;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -84,6 +86,12 @@ public class GInscription extends JFrame{
 		btnModif.setBounds(154, 266, 123, 35);
 		btnModif.addActionListener(new BModifListenerAnnee());
 		getContentPane().add(btnModif);
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(421, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
+		
 		
 		JButton btnSupp = new JButton("Supprimer");
 		btnSupp.setBounds(81, 315, 141, 35);
@@ -234,22 +242,21 @@ public class GInscription extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			String id = textFieldId.getText();
 			Integer s=Integer.valueOf(id);
-			
-			BulletinDAO b=new BulletinDAO(con);
-			ArrayList<Bulletin>tabBulletin=b.seeAll();
-			
-			for(int i=0;i<tabBulletin.size();i++)
-			{
-				if(tabBulletin.get(i).getInscription().getId()==s)
-				{
-					b.delete(tabBulletin.get(i));
-				}
-			}
-			
 			Inscription a=inscription.find(s);
 			inscription.delete(a);
 			
 		}
 		
 	}
+	
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GInscription.this.setVisible(false);
+		}
+	}
+	
+	
 }

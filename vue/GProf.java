@@ -11,6 +11,8 @@ import javax.swing.*;
 import controleur.*;
 import model.*;
 import net.proteanit.sql.DbUtils;
+import vue.GDiscipline.BtMenu;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -39,6 +41,11 @@ public class GProf extends JFrame{
 		panel.setBounds(298, 0, 536, 263);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(421, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(31, 62, 484, 138);
@@ -229,4 +236,16 @@ public class GProf extends JFrame{
 		}
 		
 	}
+	
+	
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GProf.this.setVisible(false);
+		}
+	}
+	
+	
 }

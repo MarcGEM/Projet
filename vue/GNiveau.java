@@ -11,6 +11,8 @@ import javax.swing.*;
 import controleur.*;
 import model.*;
 import net.proteanit.sql.DbUtils;
+import vue.GAnnee.BtMenu;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -46,6 +48,11 @@ public class GNiveau extends JFrame{
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() );
 		scrollPane.setViewportView(table);
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(421, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
 		
 		JButton btnAfficher = new JButton("Afficher");
 		btnAfficher.setBounds(198, 21, 141, 35);
@@ -215,6 +222,14 @@ public class GNiveau extends JFrame{
 			
 		}
 		
+	}
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GNiveau.this.setVisible(false);
+		}
 	}
 	
 	
