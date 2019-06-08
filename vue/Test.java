@@ -37,6 +37,10 @@ public class Test {
 			
 			
 
+			//GClasse g= new GClasse(con);
+			//GEnseignement g = new GEnseignement(con);
+			//GProf g= new GProf(con);
+
 			//GDiscipline g = new GDiscipline(con);
 			//GEvaluation g=new GEvaluation(con);
 			//GInscription g=new GInscription(con);
