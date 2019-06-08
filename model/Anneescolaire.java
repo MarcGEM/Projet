@@ -2,6 +2,7 @@ package model;
 
 public class Anneescolaire 
 {
+	
 	private int id;
 	private String annee;
 	

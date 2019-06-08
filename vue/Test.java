@@ -26,7 +26,7 @@ public class Test {
 			
 			//System.out.println(c.get(0).getId());
 			
-			GAnnee g = new GAnnee(con);
+			GTrimestre g = new GTrimestre(con);
 			
 			
 			

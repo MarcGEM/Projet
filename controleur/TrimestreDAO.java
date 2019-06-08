@@ -129,6 +129,25 @@ public class TrimestreDAO extends DAO<Trimestre>
 		return tabTrimestre;
 		
 	}
+	
+	public ResultSet Ro() 
+	{
+		
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM trimestre";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con.rset ;
+	}
+	
 
 	
 	
