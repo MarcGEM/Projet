@@ -52,7 +52,7 @@ public class InscriptionDAO extends DAO<Inscription>
 	public void update(Inscription obj) 
 	{
 		try {
-			con.stmt.executeUpdate( "UPDATE inscription SET classe_id='"+obj.getClasse().getId()+"', prof_id='"+obj.getEleve().getId()+"' WHERE id="+obj.getId()+"");
+			con.stmt.executeUpdate( "UPDATE inscription SET classe_id='"+obj.getClasse().getId()+"',eleve_id='"+obj.getEleve().getId()+"' WHERE id="+obj.getId()+"");
 			System.out.println("Inscription update");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -115,6 +115,26 @@ public class InscriptionDAO extends DAO<Inscription>
 			e.printStackTrace();
 		}
 		return tabInscription;
+		
+		
+	}
+	
+	
+	public ResultSet Ro() 
+	{
+		
+		String query="SELECT * FROM  inscription";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return  con.rset ;
 		
 		
 	}

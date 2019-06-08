@@ -37,6 +37,21 @@ public class Prof
 	{
 		return prenom;
 	}
+
+
+
+	public void setNom(String nom) 
+	{
+		// TODO Auto-generated method stub
+		this.nom=nom;
+		
+	}
+	
+	
+	public void setPrenom(String prenom)
+	{
+		this.prenom=prenom;
+	}
 	
 
 }

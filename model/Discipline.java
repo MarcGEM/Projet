@@ -27,6 +27,13 @@ public class Discipline
 	{
 		return nom;
 	}
+
+
+	public void setNom(String nom) 
+	{
+		this.nom=nom;
+		
+	}
 	
 	
 	

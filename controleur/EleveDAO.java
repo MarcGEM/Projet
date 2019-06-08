@@ -102,6 +102,30 @@ public class EleveDAO extends DAO<Eleve>
 			
 		}
 		
+		
+		
+		}
+	
+	
+	
+	
+	public ResultSet Ro() 
+	{
+		
+		String query="SELECT * FROM  eleve";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return  con.rset ;
+		
+		
 	}
 	
 	
