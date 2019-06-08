@@ -49,6 +49,13 @@ public class Evaluation
 	{
 		this.appreciation=appreciation;
 	}
+
+
+	public void setNote(int noteeval) 
+	{
+		this.note=noteeval;
+		
+	}
 	
 
 }

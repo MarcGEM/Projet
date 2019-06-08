@@ -101,6 +101,24 @@ public class NiveauDAO extends DAO<Niveau>
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public ResultSet Ro() 
+	{
+		
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM niveau";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con.rset ;
+	}
 
 	
 

@@ -26,9 +26,15 @@ public class Test {
 			
 			//System.out.println(c.get(0).getId());
 			
+
 			GTrimestre g = new GTrimestre(con);
 			
 			
+
+			//GDiscipline g = new GDiscipline(con);
+			//GEvaluation g=new GEvaluation(con);
+			//GInscription g=new GInscription(con);
+
 			
 			
 		} catch (ClassNotFoundException | SQLException e) {

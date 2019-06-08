@@ -102,6 +102,23 @@ public class DisciplineDAO extends DAO<Discipline>
 		return tabDiscipline;
 			
 	}
+	
+	public ResultSet Ro() 
+	{
+		
+		String query="SELECT * FROM discipline";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con.rset ;
+	}
 
 	
 

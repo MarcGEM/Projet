@@ -103,6 +103,30 @@ public class ProfDAO extends DAO<Prof>
 			
 		}
 	}
+
+	public ResultSet Ro() 
+	{
+		
+		String query="SELECT * FROM  prof";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return  con.rset ;
+		
+		
+	}
+	
+	
+	
+	
+	
 	}
 		
 	

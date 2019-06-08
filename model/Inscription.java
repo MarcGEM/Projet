@@ -1,5 +1,8 @@
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Inscription 
 {
 	private int id;
@@ -49,6 +52,21 @@ public class Inscription
 	{
 		this.c=c;
 	}
+	
+
+	public void setClasse(Classe c)
+	{
+		this.c=c;
+	}
+	
+	public void setEleve(Eleve e)
+	{
+		this.e=e;
+	}
+	
+	
+	
+	
 	
 	
 }

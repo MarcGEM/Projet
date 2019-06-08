@@ -115,6 +115,25 @@ public class EvaluationDAO extends DAO<Evaluation>
 		}
 		return TabEvaluation;
 	}
+	
+	public ResultSet Ro() 
+	{
+		
+		String query="SELECT * FROM  evaluation";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return  con.rset ;
+		
+		
+	}
 
 	
 
