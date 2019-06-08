@@ -29,7 +29,7 @@ public class Test {
 
 			//GTrimestre g = new GTrimestre(con);
 			//GClasse g= new GClasse(con);
-				GEnseignement g = new GEnseignement(con);
+			GEnseignement g = new GEnseignement(con);
 			//GProf g= new GProf(con);
 			//GDiscipline g = new GDiscipline(con);
 			//GEvaluation g=new GEvaluation(con);
