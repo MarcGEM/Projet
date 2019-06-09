@@ -7,7 +7,15 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.*;
+import org.jfree.chart.*;
 
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import com.sun.xml.internal.ws.api.pipe.Fiber;
+import com.sun.xml.internal.ws.api.pipe.Fiber.Listener;
 
 import controleur.*;
 import model.Anneescolaire;
@@ -25,6 +33,8 @@ import vue.GAnnee.ButtonAddListener;
 import vue.GAnnee.MouseAdapter;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GAffichageBulletin extends JFrame
 {
@@ -186,6 +196,53 @@ public class GAffichageBulletin extends JFrame
 			panel_3.setBackground(new Color(248, 248, 255));
 			scrollPane_3.setViewportView(panel_3);
 			
+			JButton btnGraphe = new JButton("GRAPHE");
+			btnGraphe.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+					Bulletin bulletin= b.find(idBulletin);
+					
+					for(int i=0;i<listidDetailBulletin.size();i++) {
+						
+						
+					DetailbulletinDAO db = new DetailbulletinDAO(con);
+					Detailbulletin detailbulletin = db.find(listidDetailBulletin.get(i));
+					
+					if(detailbulletin.getBulletin().getId()==idBulletin) {
+					System.out.println(listidDetailBulletin.get(i));
+						
+					double moyenne=db.moyenneDiscipline(listidDetailBulletin.get(i));
+				
+					System.out.println(moyenne);
+					
+					dataset.setValue(moyenne,"Note",detailbulletin.getEnseignement().getDiscipline().getNom() );
+					
+					int x=i*40;
+					//affichage nom matiere
+					JLabel lblNewLabel_8 = new JLabel("New label");
+					lblNewLabel_8.setBounds(51, 306+x, 92, 26);
+					lblNewLabel_8.setText(detailbulletin.getEnseignement().getDiscipline().getNom());
+					panel.add(lblNewLabel_8);
+					
+					
+					}
+					
+					//oupsi
+					
+				}
+					JFreeChart chart =ChartFactory.createBarChart("Bulletin", "Matiere","Note",dataset,PlotOrientation.VERTICAL,false,true, false);
+					CategoryPlot p= chart.getCategoryPlot();
+					p.setRangeGridlinePaint(Color.black);
+					ChartFrame frame = new ChartFrame("frame",chart);
+					frame.setVisible(true);
+					frame.setSize(450,350);
+					
+					
+				}
+			});
+			btnGraphe.setBounds(180, 546, 141, 35);
+			panel.add(btnGraphe);
+			
 		
 			
 			
@@ -275,6 +332,7 @@ public class GAffichageBulletin extends JFrame
 	
 	//onn va rechercher tous les id en rapport avec l'eleve
 	public void rechercher() {
+
 		//ensemble bulletin
 		totB=b.seeAll();
 		//ensemble inscriptionn
@@ -325,4 +383,5 @@ public class GAffichageBulletin extends JFrame
 		
 		
 	}
-}
+	}
+	
