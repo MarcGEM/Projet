@@ -43,6 +43,7 @@ public class GTrimestre extends JFrame {
 	    
 		public GTrimestre(Connexion con)  {
 			super("Gestion Annee");
+			getContentPane().setBackground(new Color(245, 222, 179));
 			setTitle("Gestion Trimestre");
 			getContentPane().setForeground(Color.BLACK);
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -54,6 +55,7 @@ public class GTrimestre extends JFrame {
 			trimestre = new TrimestreDAO(con);
 			
 			JPanel panel = new JPanel();
+			panel.setBackground(new Color(245, 222, 179));
 			panel.setBounds(298, 0, 536, 263);
 			getContentPane().add(panel);
 			panel.setLayout(null);
@@ -82,6 +84,7 @@ public class GTrimestre extends JFrame {
 			getContentPane().add(lblNewLabel);
 			
 			textFieldId = new JTextField();
+			textFieldId.setBackground(new Color(253, 245, 230));
 			textFieldId.setBounds(131, 99, 146, 32);
 			getContentPane().add(textFieldId);
 			textFieldId.setColumns(10);
@@ -91,6 +94,7 @@ public class GTrimestre extends JFrame {
 			getContentPane().add(lblNewLabel_1);
 			
 			textFieldAnnee = new JTextField();
+			textFieldAnnee.setBackground(new Color(253, 245, 230));
 			textFieldAnnee.setBounds(131, 152, 146, 32);
 			getContentPane().add(textFieldAnnee);
 			textFieldAnnee.setColumns(10);
@@ -124,6 +128,7 @@ public class GTrimestre extends JFrame {
 			getContentPane().add(lblNewLabel_3);
 			
 			dateChooserDebut = new JDateChooser();
+			dateChooserDebut.setBackground(new Color(253, 245, 230));
 			dateChooserDebut.setDateFormatString(" yyyy-MM-dd");
 			dateChooserDebut.setBounds(130, 207, 155, 32);
 	
@@ -139,6 +144,7 @@ public class GTrimestre extends JFrame {
 			getContentPane().add(label);
 			
 			textFieldNumero = new JTextField();
+			textFieldNumero.setBackground(new Color(253, 245, 230));
 			textFieldNumero.setBounds(128, 328, 157, 32);
 			getContentPane().add(textFieldNumero);
 			textFieldNumero.setColumns(10);

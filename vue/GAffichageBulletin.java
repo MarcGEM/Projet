@@ -166,6 +166,7 @@ public class GAffichageBulletin extends JFrame
 			panel.add(scrollPane_1);
 			
 			JPanel panel_1 = new JPanel();
+			panel_1.setBackground(new Color(248, 248, 255));
 			scrollPane_1.setViewportView(panel_1);
 			
 			JScrollPane scrollPane_2 = new JScrollPane();
@@ -173,6 +174,7 @@ public class GAffichageBulletin extends JFrame
 			panel.add(scrollPane_2);
 			
 			JPanel panel_2 = new JPanel();
+			panel_2.setBackground(new Color(248, 248, 255));
 			scrollPane_2.setViewportView(panel_2);
 			
 			JScrollPane scrollPane = new JScrollPane();
@@ -188,6 +190,7 @@ public class GAffichageBulletin extends JFrame
 			panel.add(scrollPane_3);
 			
 			JPanel panel_3 = new JPanel();
+			panel_3.setBackground(new Color(248, 248, 255));
 			scrollPane_3.setViewportView(panel_3);
 			
 		
@@ -253,11 +256,12 @@ public class GAffichageBulletin extends JFrame
 		lblNewLabel_10.setBounds(325, 306+x, 92, 26);
 		lblNewLabel_10.setText(detailbulletin.getAppreciation());
 		panel.add(lblNewLabel_10);
-		}
+		
 		
 		//affichage moyenne generale
 		JLabel lblNewLabel_11 = new JLabel("New label");
 		lblNewLabel_11.setBounds(266, 475, 92, 26);
+		System.out.println("id bull " +idBulletin);
 		double mg=b.moyenneDetail(idBulletin);
 		lblNewLabel_11.setText(String.valueOf(mg));
 		panel.add(lblNewLabel_11);
@@ -267,7 +271,7 @@ public class GAffichageBulletin extends JFrame
 		lblNewLabel_12.setBounds(337, 475, 92, 26);
 		lblNewLabel_12.setText(bulletin.getAppreciation());
 		panel.add(lblNewLabel_12);
-		
+		}
 		
 		}
 		

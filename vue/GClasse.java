@@ -50,6 +50,7 @@ public class GClasse extends JFrame {
 	    
 		public GClasse(Connexion con)  {
 			super("Gestion Annee");
+			getContentPane().setBackground(new Color(245, 222, 179));
 			setTitle("Gestion Classe");
 			getContentPane().setForeground(Color.BLACK);
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -61,6 +62,7 @@ public class GClasse extends JFrame {
 			trimestre = new TrimestreDAO(con);
 			
 			JPanel panel = new JPanel();
+			panel.setBackground(new Color(245, 222, 179));
 			panel.setBounds(298, 0, 536, 263);
 			getContentPane().add(panel);
 			panel.setLayout(null);
@@ -83,6 +85,7 @@ public class GClasse extends JFrame {
 			getContentPane().add(lblNewLabel);
 			
 			textFieldId = new JTextField();
+			textFieldId.setBackground(new Color(253, 245, 230));
 			textFieldId.setBounds(131, 99, 146, 32);
 			getContentPane().add(textFieldId);
 			textFieldId.setColumns(10);
@@ -92,6 +95,7 @@ public class GClasse extends JFrame {
 			getContentPane().add(lblNewLabel_1);
 			
 			textFieldNom = new JTextField();
+			textFieldNom.setBackground(new Color(253, 245, 230));
 			textFieldNom.setBounds(131, 152, 146, 32);
 			getContentPane().add(textFieldNom);
 			textFieldNom.setColumns(10);
@@ -132,6 +136,7 @@ public class GClasse extends JFrame {
 			getContentPane().add(lblNewLabel_2);
 			
 			textFieldIdNiveau = new JTextField();
+			textFieldIdNiveau.setBackground(new Color(253, 245, 230));
 			textFieldIdNiveau.setColumns(10);
 			textFieldIdNiveau.setBounds(131, 205, 146, 32);
 			getContentPane().add(textFieldIdNiveau);
@@ -142,6 +147,7 @@ public class GClasse extends JFrame {
 			
 			
 			textFieldIdAnnee = new JTextField();
+			textFieldIdAnnee.setBackground(new Color(253, 245, 230));
 			textFieldIdAnnee.setBounds(131, 258, 146, 32);
 			getContentPane().add(textFieldIdAnnee);
 			textFieldIdAnnee.setColumns(10);

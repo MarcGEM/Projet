@@ -42,6 +42,7 @@ public class GBulletin extends JFrame {
 	    
 		public GBulletin(Connexion con)  {
 			super("Gestion Annee");
+			getContentPane().setBackground(new Color(245, 222, 179));
 			setTitle("Gestion Bulletin");
 			getContentPane().setForeground(Color.BLACK);
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -53,6 +54,7 @@ public class GBulletin extends JFrame {
 			trimestre = new TrimestreDAO(con);
 			
 			JPanel panel = new JPanel();
+			panel.setBackground(new Color(245, 222, 179));
 			panel.setForeground(new Color(176, 224, 230));
 			panel.setBounds(316, 0, 518, 217);
 			getContentPane().add(panel);
@@ -81,6 +83,7 @@ public class GBulletin extends JFrame {
 			getContentPane().add(lblNewLabel);
 			
 			textFieldId = new JTextField();
+			textFieldId.setBackground(new Color(253, 245, 230));
 			textFieldId.setBounds(160, 99, 146, 32);
 			getContentPane().add(textFieldId);
 			textFieldId.setColumns(10);
@@ -90,6 +93,7 @@ public class GBulletin extends JFrame {
 			getContentPane().add(lblNewLabel_1);
 			
 			textFieldIdTrimestre = new JTextField();
+			textFieldIdTrimestre.setBackground(new Color(253, 245, 230));
 			textFieldIdTrimestre.setBounds(160, 152, 146, 32);
 			getContentPane().add(textFieldIdTrimestre);
 			textFieldIdTrimestre.setColumns(10);
@@ -130,6 +134,7 @@ public class GBulletin extends JFrame {
 			getContentPane().add(lblNewLabel_2);
 			
 			textFieldIdInscription = new JTextField();
+			textFieldIdInscription.setBackground(new Color(253, 245, 230));
 			textFieldIdInscription.setColumns(10);
 			textFieldIdInscription.setBounds(160, 205, 146, 32);
 			getContentPane().add(textFieldIdInscription);
@@ -139,6 +144,7 @@ public class GBulletin extends JFrame {
 			getContentPane().add(lblNewLabel_3);
 			
 			textFieldAppreciation = new JTextField();
+			textFieldAppreciation.setBackground(new Color(253, 245, 230));
 			textFieldAppreciation.setBounds(160, 260, 146, 32);
 			getContentPane().add(textFieldAppreciation);
 			textFieldAppreciation.setColumns(10);
@@ -170,6 +176,7 @@ public class GBulletin extends JFrame {
 			getContentPane().add(lblRechercheBulletin);
 			
 			textFieldIdRecherche = new JTextField();
+			textFieldIdRecherche.setBackground(new Color(253, 245, 230));
 			textFieldIdRecherche.setBounds(149, 482, 146, 32);
 			getContentPane().add(textFieldIdRecherche);
 			textFieldIdRecherche.setColumns(10);

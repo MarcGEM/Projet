@@ -158,6 +158,7 @@ public class BulletinDAO extends DAO<Bulletin>
 		
 		for(int i=0;i<tab.size();i++)
 		{
+			
 			tab.get(i).setMoyenne(d.moyenneDiscipline(tab.get(i).getId()));
 			somme=tab.get(i).getMoyenne()+somme;
 		}
