@@ -32,6 +32,7 @@ public class GInscription extends JFrame{
     
 	public GInscription(Connexion con) {
 		super("Gestion Inscription");
+		getContentPane().setBackground(new Color(245, 222, 179));
 		getContentPane().setForeground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
@@ -62,6 +63,7 @@ public class GInscription extends JFrame{
 		getContentPane().add(lblNewLabel);
 		
 		textFieldId = new JTextField();
+		textFieldId.setBackground(new Color(253, 245, 230));
 		textFieldId.setBounds(131, 99, 146, 32);
 		getContentPane().add(textFieldId);
 		textFieldId.setColumns(10);
@@ -71,6 +73,7 @@ public class GInscription extends JFrame{
 		getContentPane().add(lblDetailbulletin);
 		
 		textFieldAnnee = new JTextField();
+		textFieldAnnee.setBackground(new Color(253, 245, 230));
 		textFieldAnnee.setBounds(131, 154, 146, 29);
 		getContentPane().add(textFieldAnnee);
 		textFieldAnnee.setColumns(10);
@@ -79,8 +82,15 @@ public class GInscription extends JFrame{
 		lblInfos.setBounds(109, 55, 92, 26);
 		getContentPane().add(lblInfos);
 		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(578, 284, 235, 152);
+		getContentPane().add(scrollPane_2);
+		
+		table_2 = new JTable();
+		scrollPane_2.setViewportView(table_2);
+		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(316, 248, 222, 152);
+		scrollPane_1.setBounds(308, 284, 222, 152);
 		getContentPane().add(scrollPane_1);
 		
 		table_1 = new JTable();
@@ -111,26 +121,16 @@ public class GInscription extends JFrame{
 		btnSupp.addActionListener(new BSuppIdListener());
 		getContentPane().add(btnSupp);
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(578, 248, 235, 152);
-		getContentPane().add(scrollPane_2);
-		
-		table_2 = new JTable();
-		scrollPane_2.setViewportView(table_2);
-		
 		JLabel lblNewLabel_4 = new JLabel("Discipline");
 		lblNewLabel_4.setBounds(643, 216, 92, 26);
 		getContentPane().add(lblNewLabel_4);
-		
-		JLabel lblFond = new JLabel("");
-		lblFond.setBounds(0, 0, 834, 600);
-		getContentPane().add(lblFond);
 		
 		JLabel lblPrenom = new JLabel("ID Eleve");
 		lblPrenom.setBounds(18, 209, 92, 26);
 		getContentPane().add(lblPrenom);
 		
 		textFieldPrenom = new JTextField();
+		textFieldPrenom.setBackground(new Color(253, 245, 230));
 		textFieldPrenom.setColumns(10);
 		textFieldPrenom.setBounds(131, 203, 146, 32);
 		getContentPane().add(textFieldPrenom);

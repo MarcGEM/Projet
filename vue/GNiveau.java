@@ -29,6 +29,7 @@ public class GNiveau extends JFrame{
     
 	public GNiveau(Connexion con) {
 		super("Gestion Niveau");
+		getContentPane().setBackground(new Color(245, 222, 179));
 		getContentPane().setForeground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
@@ -37,6 +38,7 @@ public class GNiveau extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(245, 222, 179));
 		panel.setBounds(298, 0, 536, 263);
 		getContentPane().add(panel);
 		panel.setLayout(null);
@@ -64,6 +66,7 @@ public class GNiveau extends JFrame{
 		getContentPane().add(lblNewLabel);
 		
 		textFieldId = new JTextField();
+		textFieldId.setBackground(new Color(253, 245, 230));
 		textFieldId.setBounds(131, 99, 146, 32);
 		getContentPane().add(textFieldId);
 		textFieldId.setColumns(10);
@@ -73,6 +76,7 @@ public class GNiveau extends JFrame{
 		getContentPane().add(lblNewLabel_1);
 		
 		textFieldAnnee = new JTextField();
+		textFieldAnnee.setBackground(new Color(253, 245, 230));
 		textFieldAnnee.setBounds(131, 152, 146, 32);
 		getContentPane().add(textFieldAnnee);
 		textFieldAnnee.setColumns(10);

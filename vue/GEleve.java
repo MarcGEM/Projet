@@ -30,7 +30,7 @@ public class GEleve extends JFrame{
     
 	public GEleve(Connexion con) {
 		super("Gestion Eleve");
-		getContentPane().setForeground(new Color(176, 224, 230));
+		getContentPane().setForeground(new Color(245, 222, 179));
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
 		//position au centre
@@ -38,6 +38,7 @@ public class GEleve extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(245, 222, 179));
 		panel.setBounds(298, 0, 536, 263);
 		getContentPane().add(panel);
 		panel.setLayout(null);
@@ -60,6 +61,7 @@ public class GEleve extends JFrame{
 		getContentPane().add(lblNewLabel);
 		
 		textFieldId = new JTextField();
+		textFieldId.setBackground(new Color(253, 245, 230));
 		textFieldId.setBounds(131, 99, 146, 32);
 		getContentPane().add(textFieldId);
 		textFieldId.setColumns(10);
@@ -69,6 +71,7 @@ public class GEleve extends JFrame{
 		getContentPane().add(lblNewLabel_1);
 		
 		textFieldAnnee = new JTextField();
+		textFieldAnnee.setBackground(new Color(253, 245, 230));
 		textFieldAnnee.setBounds(131, 152, 146, 32);
 		getContentPane().add(textFieldAnnee);
 		textFieldAnnee.setColumns(10);
@@ -92,10 +95,6 @@ public class GEleve extends JFrame{
 		btnSupp.addActionListener(new BSuppIdListener());
 		getContentPane().add(btnSupp);
 		
-		JLabel lblFond = new JLabel("");
-		lblFond.setBounds(0, 0, 834, 600);
-		getContentPane().add(lblFond);
-		
 		JButton btnMenu = new JButton("Menu");
 		btnMenu.setBounds(421, 0, 115, 29);
 		btnMenu.addActionListener(new BtMenu());
@@ -106,6 +105,7 @@ public class GEleve extends JFrame{
 		getContentPane().add(lblPrenom);
 		
 		textFieldPrenom = new JTextField();
+		textFieldPrenom.setBackground(new Color(253, 245, 230));
 		textFieldPrenom.setColumns(10);
 		textFieldPrenom.setBounds(131, 203, 146, 32);
 		getContentPane().add(textFieldPrenom);

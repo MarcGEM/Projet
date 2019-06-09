@@ -40,6 +40,7 @@ public class GDetail extends JFrame {
 	    
 	    
 		public GDetail(Connexion con)  {
+			getContentPane().setBackground(new Color(245, 222, 179));
 			setTitle("Gestion Detail");
 			getContentPane().setForeground(Color.BLACK);
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -52,6 +53,7 @@ public class GDetail extends JFrame {
 			i=new EnseignementDAO(con);
 			
 			JPanel panel = new JPanel();
+			panel.setBackground(new Color(245, 222, 179));
 			panel.setForeground(new Color(176, 224, 230));
 			panel.setBounds(316, 0, 518, 217);
 			getContentPane().add(panel);
@@ -75,6 +77,7 @@ public class GDetail extends JFrame {
 			getContentPane().add(lblNewLabel);
 			
 			textFieldId = new JTextField();
+			textFieldId.setBackground(new Color(253, 245, 230));
 			textFieldId.setBounds(160, 99, 146, 32);
 			getContentPane().add(textFieldId);
 			textFieldId.setColumns(10);
@@ -84,6 +87,7 @@ public class GDetail extends JFrame {
 			getContentPane().add(lblNewLabel_1);
 			
 			textFieldIdTrimestre = new JTextField();
+			textFieldIdTrimestre.setBackground(new Color(253, 245, 230));
 			textFieldIdTrimestre.setBounds(160, 152, 146, 32);
 			getContentPane().add(textFieldIdTrimestre);
 			textFieldIdTrimestre.setColumns(10);
@@ -124,6 +128,7 @@ public class GDetail extends JFrame {
 			getContentPane().add(lblNewLabel_2);
 			
 			textFieldIdInscription = new JTextField();
+			textFieldIdInscription.setBackground(new Color(253, 245, 230));
 			textFieldIdInscription.setColumns(10);
 			textFieldIdInscription.setBounds(160, 205, 146, 32);
 			getContentPane().add(textFieldIdInscription);
@@ -138,6 +143,7 @@ public class GDetail extends JFrame {
 			panel.add(btnMenu);
 			
 			textFieldAppreciation = new JTextField();
+			textFieldAppreciation.setBackground(new Color(253, 245, 230));
 			textFieldAppreciation.setBounds(160, 260, 146, 32);
 			getContentPane().add(textFieldAppreciation);
 			textFieldAppreciation.setColumns(10);

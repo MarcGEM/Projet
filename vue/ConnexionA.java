@@ -20,6 +20,7 @@ public class ConnexionA extends JFrame {
 	
 	public ConnexionA() {
 		super("Connexion");
+		getContentPane().setBackground(new Color(255, 248, 220));
 		getContentPane().setForeground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(485,341);

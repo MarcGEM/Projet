@@ -32,7 +32,8 @@ public class GEvaluation extends JFrame{
     
 	public GEvaluation(Connexion con) {
 		super("Gestion Evaluation");
-		getContentPane().setForeground(new Color(176, 224, 230));
+		getContentPane().setBackground(new Color(245, 222, 179));
+		getContentPane().setForeground(new Color(0, 0, 0));
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
 		//position au centre
@@ -40,6 +41,7 @@ public class GEvaluation extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(245, 222, 179));
 		panel.setBounds(298, 0, 536, 263);
 		getContentPane().add(panel);
 		panel.setLayout(null);
@@ -62,6 +64,7 @@ public class GEvaluation extends JFrame{
 		getContentPane().add(lblNewLabel);
 		
 		textFieldId = new JTextField();
+		textFieldId.setBackground(new Color(253, 245, 230));
 		textFieldId.setBounds(131, 99, 146, 32);
 		getContentPane().add(textFieldId);
 		textFieldId.setColumns(10);
@@ -71,6 +74,7 @@ public class GEvaluation extends JFrame{
 		getContentPane().add(lblDetailbulletin);
 		
 		textFieldAnnee = new JTextField();
+		textFieldAnnee.setBackground(new Color(253, 245, 230));
 		textFieldAnnee.setBounds(166, 154, 74, 29);
 		getContentPane().add(textFieldAnnee);
 		textFieldAnnee.setColumns(10);
@@ -94,21 +98,18 @@ public class GEvaluation extends JFrame{
 		btnSupp.addActionListener(new BSuppIdListener());
 		getContentPane().add(btnSupp);
 		
-		JLabel lblFond = new JLabel("");
-		lblFond.setForeground(new Color(176, 224, 230));
-		lblFond.setBounds(0, 0, 834, 600);
-		getContentPane().add(lblFond);
-		
 		JLabel lblPrenom = new JLabel("Note");
 		lblPrenom.setBounds(18, 209, 92, 26);
 		getContentPane().add(lblPrenom);
 		
 		textFieldPrenom = new JTextField();
+		textFieldPrenom.setBackground(new Color(253, 245, 230));
 		textFieldPrenom.setColumns(10);
 		textFieldPrenom.setBounds(131, 203, 146, 32);
 		getContentPane().add(textFieldPrenom);
 		
 		textFieldAppreciation = new JTextField();
+		textFieldAppreciation.setBackground(new Color(253, 245, 230));
 		textFieldAppreciation.setColumns(10);
 		textFieldAppreciation.setBounds(131, 245, 146, 32);
 		getContentPane().add(textFieldAppreciation);

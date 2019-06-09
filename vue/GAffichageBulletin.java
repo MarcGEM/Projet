@@ -159,6 +159,7 @@ public class GAffichageBulletin extends JFrame
 			panel.add(scrollPane_1);
 			
 			JPanel panel_1 = new JPanel();
+			panel_1.setBackground(new Color(248, 248, 255));
 			scrollPane_1.setViewportView(panel_1);
 			
 			JScrollPane scrollPane_2 = new JScrollPane();
@@ -166,6 +167,7 @@ public class GAffichageBulletin extends JFrame
 			panel.add(scrollPane_2);
 			
 			JPanel panel_2 = new JPanel();
+			panel_2.setBackground(new Color(248, 248, 255));
 			scrollPane_2.setViewportView(panel_2);
 			
 			JScrollPane scrollPane = new JScrollPane();
@@ -181,6 +183,7 @@ public class GAffichageBulletin extends JFrame
 			panel.add(scrollPane_3);
 			
 			JPanel panel_3 = new JPanel();
+			panel_3.setBackground(new Color(248, 248, 255));
 			scrollPane_3.setViewportView(panel_3);
 			
 		

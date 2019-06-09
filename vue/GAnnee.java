@@ -66,6 +66,7 @@ public class GAnnee extends JFrame{
 		getContentPane().add(lblNewLabel);
 		
 		textFieldId = new JTextField();
+		textFieldId.setBackground(new Color(224, 255, 255));
 		textFieldId.setBounds(131, 99, 146, 32);
 		getContentPane().add(textFieldId);
 		textFieldId.setColumns(10);
@@ -75,6 +76,7 @@ public class GAnnee extends JFrame{
 		getContentPane().add(lblNewLabel_1);
 		
 		textFieldAnnee = new JTextField();
+		textFieldAnnee.setBackground(new Color(224, 255, 255));
 		textFieldAnnee.setBounds(131, 152, 146, 32);
 		getContentPane().add(textFieldAnnee);
 		textFieldAnnee.setColumns(10);
