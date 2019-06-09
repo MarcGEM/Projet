@@ -14,7 +14,6 @@ public class Evaluation
 		this.d=d;
 		this.note=note;
 		this.appreciation=appreciation;
-		d.AjouterEvaluation(this);
 	}
 	
 	

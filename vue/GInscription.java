@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.Color;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -25,7 +26,8 @@ public class GInscription extends JFrame{
     private JTextField textFieldAnnee;
 	private static int test;
 	private JTextField textFieldPrenom;
-    
+	private JTable table_1;
+	private JTable table_2;
     
     
 	public GInscription(Connexion con) {
@@ -77,6 +79,17 @@ public class GInscription extends JFrame{
 		lblInfos.setBounds(109, 55, 92, 26);
 		getContentPane().add(lblInfos);
 		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(316, 248, 222, 152);
+		getContentPane().add(scrollPane_1);
+		
+		table_1 = new JTable();
+		scrollPane_1.setViewportView(table_1);
+		
+		Label label_1 = new Label("Classe");
+		label_1.setBounds(361, 216, 104, 26);
+		getContentPane().add(label_1);
+		
 		JButton btnAdd = new JButton("Ajouter");
 		btnAdd.addActionListener(new ButtonAddListener());
 		btnAdd.setBounds(18, 266, 133, 35);
@@ -97,6 +110,17 @@ public class GInscription extends JFrame{
 		btnSupp.setBounds(81, 315, 141, 35);
 		btnSupp.addActionListener(new BSuppIdListener());
 		getContentPane().add(btnSupp);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(578, 248, 235, 152);
+		getContentPane().add(scrollPane_2);
+		
+		table_2 = new JTable();
+		scrollPane_2.setViewportView(table_2);
+		
+		JLabel lblNewLabel_4 = new JLabel("Discipline");
+		lblNewLabel_4.setBounds(643, 216, 92, 26);
+		getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblFond = new JLabel("");
 		lblFond.setBounds(0, 0, 834, 600);
@@ -205,6 +229,13 @@ public class GInscription extends JFrame{
 			ResultSet rs =inscription.Ro();
 			System.out.println("ok");
 			table.setModel(DbUtils.resultSetToTableModel(rs));
+			ClasseDAO classe1 = new ClasseDAO(con);
+			ResultSet rs1 =classe1.Ro();
+			table_1.setModel(DbUtils.resultSetToTableModel(rs1));
+			EleveDAO discipline1 = new EleveDAO(con);
+			ResultSet rs2 = discipline1.Ro();
+			table_2.setModel(DbUtils.resultSetToTableModel(rs2));
+			
 			
 		}
 		

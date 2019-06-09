@@ -8,7 +8,7 @@ public class Bulletin
 	private Trimestre t;
 	private Inscription i;
 	private String appreciation;
-	private ArrayList<Detailbulletin>tabDetail;
+	
 	
 	
 	public Bulletin(int id,Trimestre t,Inscription i,String appreciation)
@@ -46,24 +46,10 @@ public class Bulletin
 		return appreciation;
 	}
 	
-	public void AjouterDetail(Detailbulletin d)
-	{
-		tabDetail.add(d);
-	}
 	
 	
-	public double moyenneGeneral()
-	{
-		double somme=0;
-		double moyenne=0;
-		
-		for(int i=0;i<tabDetail.size();i++)
-		{
-			somme=tabDetail.get(i).moyenneDiscipline()+somme;
-		}
-		moyenne=somme/tabDetail.size();
-		return moyenne;
-	}
+	
+
 
 
 	public void setAppreciation(String appreciation2) 
