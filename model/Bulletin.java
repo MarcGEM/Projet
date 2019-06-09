@@ -64,6 +64,13 @@ public class Bulletin
 		moyenne=somme/tabDetail.size();
 		return moyenne;
 	}
+
+
+	public void setAppreciation(String appreciation2) 
+	{
+		this.appreciation=appreciation2;
+		
+	}
 	
 	
 }

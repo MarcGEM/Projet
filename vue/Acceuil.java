@@ -182,12 +182,14 @@ public class Acceuil extends JFrame implements ActionListener {
 		
 		if(e.getSource()==bulletin)
 		{
-			//en attente
+			GBulletin g =new GBulletin(con);
+			this.setVisible(false);
 		}
 		
 		if(e.getSource()==detailbulletin)
 		{
-			//en attente
+			GDetail g=new GDetail(con);
+			this.setVisible(false);
 		}
 		
 		if(e.getSource()==evaluation)
