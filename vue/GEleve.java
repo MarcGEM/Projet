@@ -30,7 +30,7 @@ public class GEleve extends JFrame{
     
 	public GEleve(Connexion con) {
 		super("Gestion Eleve");
-		getContentPane().setForeground(Color.BLACK);
+		getContentPane().setForeground(new Color(176, 224, 230));
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
 		//position au centre

@@ -53,6 +53,7 @@ public class GBulletin extends JFrame {
 			trimestre = new TrimestreDAO(con);
 			
 			JPanel panel = new JPanel();
+			panel.setForeground(new Color(176, 224, 230));
 			panel.setBounds(316, 0, 518, 217);
 			getContentPane().add(panel);
 			panel.setLayout(null);

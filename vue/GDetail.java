@@ -52,6 +52,7 @@ public class GDetail extends JFrame {
 			i=new EnseignementDAO(con);
 			
 			JPanel panel = new JPanel();
+			panel.setForeground(new Color(176, 224, 230));
 			panel.setBounds(316, 0, 518, 217);
 			getContentPane().add(panel);
 			panel.setLayout(null);
