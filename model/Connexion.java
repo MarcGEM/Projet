@@ -33,15 +33,15 @@ public class Connexion
         System.out.println("Connexion �tablie");
     }
     
-    public Connexion(String urlDatabase, String Mdp ) throws SQLException, ClassNotFoundException {
+    public Connexion(String nameDatabase,String nameServeur, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
 
         // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
-         //urlDatabase = "jdbc:mysql://localhost/ecole";
+        String urlDatabase = "jdbc:mysql://"+nameServeur+"/" + nameDatabase;
          
         //création d'une connexion JDBC à la base 
-        conn = DriverManager.getConnection(urlDatabase,Mdp, "");
+        conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
 
         // création d'un ordre SQL (statement)
         stmt = conn.createStatement();

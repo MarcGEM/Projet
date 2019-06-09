@@ -11,6 +11,8 @@ import javax.swing.*;
 import controleur.*;
 import model.*;
 import net.proteanit.sql.DbUtils;
+import vue.GProf.BtMenu;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -93,6 +95,11 @@ public class GEleve extends JFrame{
 		JLabel lblFond = new JLabel("");
 		lblFond.setBounds(0, 0, 834, 600);
 		getContentPane().add(lblFond);
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(421, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
 		
 		JLabel lblPrenom = new JLabel("Prenom");
 		lblPrenom.setBounds(18, 209, 92, 26);
@@ -231,4 +238,15 @@ public class GEleve extends JFrame{
 		}
 		
 	}
+	
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GEleve.this.setVisible(false);
+		}
+	}
+	
+	
 }

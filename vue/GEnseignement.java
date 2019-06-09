@@ -19,6 +19,8 @@ import controleur.*;
 import model.*;
 import net.proteanit.sql.DbUtils;
 import vue.*;
+import vue.GDiscipline.BSuppIdListener;
+import vue.GDiscipline.BtMenu;
 
 public class GEnseignement extends JFrame {
 	 private AnneescolaireDAO Annee;
@@ -76,6 +78,12 @@ public class GEnseignement extends JFrame {
 			getContentPane().add(textFieldId);
 			textFieldId.setColumns(10);
 			
+			JButton btnMenu = new JButton("Menu");
+			btnMenu.setBounds(421, 0, 115, 29);
+			btnMenu.addActionListener(new BtMenu());
+			panel.add(btnMenu);
+			
+			
 			JLabel lblNewLabel_1 = new JLabel("ID  Classe");
 			lblNewLabel_1.setBounds(21, 155, 109, 26);
 			getContentPane().add(lblNewLabel_1);
@@ -100,9 +108,10 @@ public class GEnseignement extends JFrame {
 			btnModif.addActionListener(new BModifListener());
 			getContentPane().add(btnModif);
 			
+			
 			JButton btnSupp = new JButton("Supprimer");
 			btnSupp.setBounds(96, 421, 141, 35);
-			//btnSupp.addActionListener(new BSuppIdListener());
+			btnSupp.addActionListener(new BSuppIdListener());
 			getContentPane().add(btnSupp);
 			
 			JScrollPane scrollPane_1 = new JScrollPane();
@@ -352,14 +361,23 @@ public class GEnseignement extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String id = textFieldId.getText();
 				Integer s=Integer.valueOf(id);
-				ClasseDAO classeDAO= new ClasseDAO(con);
-				Classe classe = classeDAO.find(s);
+				EnseignementDAO ens=new EnseignementDAO(con);
+				Enseignement classe = ens.find(s);
 				
-				classeDAO.delete(classe);
+				ens.delete(classe);
 				
 
 			}
 			
+		}
+		
+		class BtMenu implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				Acceuil a=new Acceuil();
+				GEnseignement.this.setVisible(false);
+			}
 		}
 		
 }

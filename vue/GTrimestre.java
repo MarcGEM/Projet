@@ -19,6 +19,8 @@ import model.Anneescolaire;
 import model.Connexion;
 import model.Trimestre;
 import net.proteanit.sql.DbUtils;
+import vue.GAnnee.BtMenu;
+
 import com.toedter.calendar.JDateChooser;
 import java.util.*;
 
@@ -68,6 +70,12 @@ public class GTrimestre extends JFrame {
 			btnAfficher.setBounds(198, 21, 141, 35);
 			btnAfficher.addActionListener(new BtAfficherListener());
 			panel.add(btnAfficher);
+			
+			JButton btnMenu = new JButton("Menu");
+			btnMenu.setBounds(421, 0, 115, 29);
+			btnMenu.addActionListener(new BtMenu());
+			panel.add(btnMenu);
+			
 			
 			JLabel lblNewLabel = new JLabel("ID");
 			lblNewLabel.setBounds(18, 102, 92, 26);
@@ -147,9 +155,8 @@ public class GTrimestre extends JFrame {
 			getContentPane().add(label_1);
 			this.con=con;
 			
-			Annee= new AnneescolaireDAO(con);
-			ArrayList<Anneescolaire> c=Annee.seeAll();
-			String title[]= {"Id","Annee"};
+			
+			
 			setResizable(false);
 			//oupsi
 			
@@ -340,5 +347,14 @@ public class GTrimestre extends JFrame {
 
 			}
 			
+		}
+		
+		class BtMenu implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				Acceuil a=new Acceuil();
+				GTrimestre.this.setVisible(false);
+			}
 		}
 }

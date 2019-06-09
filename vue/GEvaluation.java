@@ -11,6 +11,8 @@ import javax.swing.*;
 import controleur.*;
 import model.*;
 import net.proteanit.sql.DbUtils;
+import vue.GInscription.BtMenu;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -24,6 +26,7 @@ public class GEvaluation extends JFrame{
 	private static int test;
 	private JTextField textFieldPrenom;
 	private JTextField textFieldAppreciation;
+	private JTable table_1;
     
     
     
@@ -114,6 +117,21 @@ public class GEvaluation extends JFrame{
 		getContentPane().add(lblAppreciation);
 		this.con=con;
 		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(421, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
+		
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(472, 328, 245, 152);
+		getContentPane().add(scrollPane_1);
+		
+		table_1 = new JTable();
+		scrollPane_1.setViewportView(table_1);
+		
+		
+		
 		evaluation= new EvaluationDAO(con);
 		setResizable(false);
 		
@@ -190,10 +208,12 @@ public class GEvaluation extends JFrame{
 					Integer noteeval=Integer.valueOf(note);
 					String appreciation=textFieldAppreciation.getText();
 					DetailbulletinDAO d=new DetailbulletinDAO(con);
+					Detailbulletin de=d.find(detail);
 					
-					Evaluation a=new Evaluation(s,d.find(detail),noteeval,appreciation);
+					Evaluation a=new Evaluation(s,de,noteeval,appreciation);
 					evaluation.create(a);
 					
+					// System.out.println(d.moyenneDiscipline(detail));
 					
 					}
 				
@@ -208,6 +228,9 @@ public class GEvaluation extends JFrame{
 			ResultSet rs =evaluation.Ro();
 			System.out.println("ok");
 			table.setModel(DbUtils.resultSetToTableModel(rs));
+			DetailbulletinDAO annee1 = new DetailbulletinDAO(con);
+			//ResultSet rs1 =annee1.Ro();
+			//table_1.setModel(DbUtils.resultSetToTableModel(rs1));
 			
 		}
 		
@@ -249,4 +272,16 @@ public class GEvaluation extends JFrame{
 		}
 		
 	}
+	
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GEvaluation.this.setVisible(false);
+		}
+	}
+	
+	
+	
 }

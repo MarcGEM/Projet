@@ -10,6 +10,7 @@ public class DetailbulletinDAO extends DAO<Detailbulletin>
 	BulletinDAO bulletin;
 	EnseignementDAO enseignement;
 	ArrayList<Detailbulletin> tabBulletin;
+	ArrayList<Evaluation>tabEvaluation;
 
 	public DetailbulletinDAO(Connexion m_con) 
 	{
@@ -17,6 +18,7 @@ public class DetailbulletinDAO extends DAO<Detailbulletin>
 		bulletin=new BulletinDAO(con);
 		enseignement=new EnseignementDAO(con);
 		tabBulletin=new ArrayList<Detailbulletin>();
+		tabEvaluation=new ArrayList<Evaluation>();
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -117,6 +119,49 @@ public class DetailbulletinDAO extends DAO<Detailbulletin>
 		return tabBulletin;
 		
 	}
+	
+	public ArrayList evaAll(int id) 
+	{
+		Evaluation b=new Evaluation();
+		String query="SELECT * FROM evaluation WHERE detailbulletin_id="+id;
+		try {
+			con.rset1=con.stmt1.executeQuery(query);
+			while(con.rset1.next())
+			{
+				int ide=con.rset1.getInt("id");
+				int idenseignement=con.rset1.getInt("note");
+				String appreciation=con.rset1.getString("appreciation");
+				b=new Evaluation(id,find(id),idenseignement,appreciation);
+				
+				tabEvaluation.add(b);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tabEvaluation;
+		
+	}
+	
+	public double moyenneDiscipline(int id)
+	{
+		double somme=0;
+		double moyenne=0;
+		
+		ArrayList<Evaluation> tab=evaAll(id);
+		
+		
+		for(int i=0;i<tab.size();i++)
+		{
+			somme=tab.get(i).getNote()+somme;
+		}
+		moyenne=somme/tab.size();
+		return moyenne;
+	}
+	
 
 	
 

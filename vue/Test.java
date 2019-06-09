@@ -15,30 +15,28 @@ public class Test {
 			
 			con=new Connexion();
 			
+			//ConnexionA ad=new ConnexionA();
+			//DetailbulletinDAO d=new DetailbulletinDAO(con);
 			
+			//System.out.println(d.moyenneDiscipline(1));
 			
+			//BulletinDAO b=new BulletinDAO(con);
 			
+			//System.out.print(b.moyenneDetail(1));
 
-			//con = new Connexion();
-			//AnneescolaireDAO bullDao= new AnneescolaireDAO(con);
-			//AnneescolaireDAO classeDao=new AnneescolaireDAO(con);
-			//ArrayList<Anneescolaire> c=bullDao.seeAll();
 			
-			//System.out.println(c.get(0).getId());
-			
-
+			//ConnexionA g = new ConnexionA();
+			Acceuil a= new Acceuil();
 			//GTrimestre g = new GTrimestre(con);
 			//GClasse g= new GClasse(con);
 			//GEnseignement g = new GEnseignement(con);
-			GBulletin g= new GBulletin(con);
+			//GBulletin g= new GBulletin(con);
 			//GProf g= new GProf(con);
 			//GDiscipline g = new GDiscipline(con);
 			//GEvaluation g=new GEvaluation(con);
 			//GInscription g=new GInscription(con);
 			//GEleve g = new GEleve(con);
-
-			
-			
+		
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,12 +55,11 @@ public class Test {
 	  
 	      
 
-	    }
-
+	    
 
 		
 		
-
+	}
 		
 	   
 		

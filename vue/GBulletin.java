@@ -313,7 +313,7 @@ public class GBulletin extends JFrame {
 					 }
 				
 					BulletinDAO bulletinDAO = new BulletinDAO(con);
-					Bulletin bulletin = new Bulletin(s,t,i,Appreciation);
+					//Bulletin bulletin = bulletinnDAO.find()
 					bulletinDAO.update(bulletin);
 				
 				 
@@ -337,10 +337,10 @@ public class GBulletin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String id = textFieldId.getText();
 				Integer s=Integer.valueOf(id);
-				ClasseDAO classeDAO= new ClasseDAO(con);
-				Classe classe = classeDAO.find(s);
+				BulletinDAO bulletinDAO= new BulletinDAO(con);
+				Bulletin bulletin = bulletinDAO.find(s);
 				
-				classeDAO.delete(classe);
+				
 				
 
 			}
