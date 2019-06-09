@@ -229,8 +229,8 @@ public class GEvaluation extends JFrame{
 			System.out.println("ok");
 			table.setModel(DbUtils.resultSetToTableModel(rs));
 			DetailbulletinDAO annee1 = new DetailbulletinDAO(con);
-			//ResultSet rs1 =annee1.Ro();
-			//table_1.setModel(DbUtils.resultSetToTableModel(rs1));
+			ResultSet rs1 =annee1.Ro();
+			table_1.setModel(DbUtils.resultSetToTableModel(rs1));
 			
 		}
 		

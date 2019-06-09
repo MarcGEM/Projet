@@ -42,7 +42,7 @@ public class BulletinDAO extends DAO<Bulletin>
 	public void delete(Bulletin obj) 
 	{
 		try {
-			 con.stmt.executeUpdate( "DELETE FROM Bulletin Where id="+obj.getId());
+			 con.stmt.executeUpdate( "DELETE FROM bulletin Where id="+obj.getId());
 			System.out.println("Bulletin delete");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -55,7 +55,7 @@ public class BulletinDAO extends DAO<Bulletin>
 	public void update(Bulletin obj) 
 	{
 		try {
-			con.stmt.executeUpdate( "UPDATE Bulletin SET trimestre_id='"+obj.getTrimestre().getId()+"', discipline_id='"+obj.getInscription().getId()+"', appreciation='"+obj.getAppreciation()+"' WHERE id="+obj.getId()+"");
+			con.stmt.executeUpdate( "UPDATE bulletin SET trimestre_id='"+obj.getTrimestre().getId()+"', inscription_id='"+obj.getInscription().getId()+"', appreciation='"+obj.getAppreciation()+"' WHERE id="+obj.getId()+"");
 			System.out.println("Bulletin update");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

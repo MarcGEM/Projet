@@ -84,6 +84,13 @@ public class Detailbulletin
 	{
 		this.moyenne=moyenne;
 	}
+
+
+	public void setAppreciation(String appreciation2) 
+	{
+		this.appreciation=appreciation2;
+		
+	}
 	
 	
 }

@@ -162,6 +162,24 @@ public class DetailbulletinDAO extends DAO<Detailbulletin>
 		return moyenne;
 	}
 	
+	public ResultSet Ro() 
+	{
+		
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM detailbulletin";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con.rset ;
+	}
+	
 
 	
 

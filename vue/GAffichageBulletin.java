@@ -7,18 +7,28 @@ import javax.swing.*;
 
 
 import controleur.*;
+import model.Anneescolaire;
 import model.Bulletin;
 import model.Connexion;
+import vue.GAnnee.BModifListenerAnnee;
+import vue.GAnnee.BSuppIdListener;
+import vue.GAnnee.BtAfficherListener;
+import vue.GAnnee.BtMenu;
+import vue.GAnnee.ButtonAddListener;
+import vue.GAnnee.MouseAdapter;
 
 public class GAffichageBulletin extends JFrame
 {
 
 	ArrayList<JLabel>tab;
 	BulletinDAO b;
+	JLabel l;
 	
 	
-	public  GAffichageBulletin(Connexion con,int nbr)  {
-		super("Bulletin");
+	public  GAffichageBulletin(Connexion con,int nbr)  
+	{
+		
+		
 		getContentPane().setForeground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
@@ -26,23 +36,27 @@ public class GAffichageBulletin extends JFrame
 		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
-		tab=new ArrayList<JLabel>();
+		JPanel panel = new JPanel();
+		panel.setBounds(298, 0, 536, 263);
+		getContentPane().add(panel);
+		panel.setLayout(null);
 		
-		b=new BulletinDAO(con);
-	    Bulletin c=new Bulletin();
+		
+		
+		setResizable(false);
+		//oupsi
+		
+		
+		this.setVisible(true);
 		
 		
 		
+		
+		
 			
 			
 			
 			
-			
-			
-			
-			
-			
-			this.setVisible(true);	
 	}
 		
 	
