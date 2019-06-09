@@ -15,7 +15,7 @@ public class Test {
 			
 			con=new Connexion();
 			
-			ConnexionA ad=new ConnexionA();
+			//ConnexionA ad=new ConnexionA();
 			//DetailbulletinDAO d=new DetailbulletinDAO(con);
 			
 			//System.out.println(d.moyenneDiscipline(1));
@@ -28,15 +28,16 @@ public class Test {
 			//ConnexionA g = new ConnexionA();
 			//Acceuil a= new Acceuil();
 			//GTrimestre g = new GTrimestre(con);
-			GClasse g= new GClasse(con);
+			//GClasse g= new GClasse(con);
 			//GEnseignement g = new GEnseignement(con);
 			//GBulletin g= new GBulletin(con);
+			GAffichageBulletin a = new GAffichageBulletin(con,2);
 			//GProf g= new GProf(con);
 			//GDiscipline g = new GDiscipline(con);
 			//GEvaluation g=new GEvaluation(con);
 			//GInscription g=new GInscription(con);
 			//GEleve g = new GEleve(con);
-		
+			//GDetail g = new GDetail(con);
 			
 			//GAffichageBulletin v=new GAffichageBulletin(con,1);
 		} catch (ClassNotFoundException | SQLException e) {

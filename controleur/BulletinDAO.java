@@ -104,7 +104,7 @@ public class BulletinDAO extends DAO<Bulletin>
 			{
 				int id=con.rset1.getInt("id");
 				int idtrimestre=con.rset1.getInt("trimestre_id");
-				int idinscription=con.rset1.getInt("eleve_id");
+				int idinscription=con.rset1.getInt("inscription_id");
 				String appreciation=con.rset1.getString("appreciation");
 				b=new Bulletin(id,trimestre.find(idtrimestre),inscription.find(idinscription),appreciation);
 				
