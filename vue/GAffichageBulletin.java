@@ -284,7 +284,7 @@ public class GAffichageBulletin extends JFrame
 		
 		for(int i=0;i<totB.size();i++) {
 			
-			if(totB.get(i).getInscription().getId()==idInscription) {
+			if(totB.get(i).getInscription().getId()==idBulletin) {
 				idBulletin=totB.get(i).getId();
 				idTrimestre=totB.get(i).getTrimestre().getId();
 				

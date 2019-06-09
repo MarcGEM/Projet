@@ -30,7 +30,7 @@ public class Connexion
         stmt2=conn.createStatement();
         
         
-        System.out.println("Connexion établie");
+        //System.out.println("Connexion établie");
     }
     
     public Connexion(String nameDatabase,String nameServeur, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
@@ -48,7 +48,7 @@ public class Connexion
         stmt1 = conn.createStatement();
         stmt2=conn.createStatement();
         
-        System.out.println("Connexion établie");
+        //System.out.println("Connexion établie");
     }
     
 

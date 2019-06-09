@@ -159,6 +159,7 @@ public class DetailbulletinDAO extends DAO<Detailbulletin>
 			somme=tab.get(i).getNote()+somme;
 		}
 		moyenne=somme/tab.size();
+		tab.clear();
 		return moyenne;
 	}
 	

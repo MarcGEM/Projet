@@ -37,7 +37,7 @@ public class Test {
 			//GEvaluation g=new GEvaluation(con);
 			//GInscription g=new GInscription(con);
 			//GEleve g = new GEleve(con);
-
+			//System.out.println("oj");
 			//GGraphique g=new GGraphique(con);
 
 			//GDetail g = new GDetail(con);
