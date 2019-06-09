@@ -47,7 +47,7 @@ public class GEvaluation extends JFrame{
 		panel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(31, 62, 484, 138);
+		scrollPane.setBounds(21, 77, 484, 138);
 		panel.add(scrollPane);
 		
 		table = new JTable();
@@ -126,7 +126,7 @@ public class GEvaluation extends JFrame{
 		
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(472, 328, 245, 152);
+		scrollPane_1.setBounds(373, 331, 406, 200);
 		getContentPane().add(scrollPane_1);
 		
 		table_1 = new JTable();
@@ -136,6 +136,10 @@ public class GEvaluation extends JFrame{
 		lblNewLabel_1.setForeground(new Color(176, 224, 230));
 		lblNewLabel_1.setBounds(0, 0, 834, 611);
 		getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblDetailBulletin = new JLabel("Detail Bulletin");
+		lblDetailBulletin.setBounds(523, 284, 160, 26);
+		getContentPane().add(lblDetailBulletin);
 		
 		
 		

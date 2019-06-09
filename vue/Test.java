@@ -31,14 +31,15 @@ public class Test {
 			//GClasse g= new GClasse(con);
 			//GEnseignement g = new GEnseignement(con);
 			
-			GBulletin g= new GBulletin(con);
+			//GBulletin g= new GBulletin(con);
 			
 			//GAffichageBulletin a = new GAffichageBulletin(con,2);
 			//GProf g= new GProf(con);
 			//GDiscipline g = new GDiscipline(con);
-			//GEvaluation g=new GEvaluation(con);
+			GEvaluation g=new GEvaluation(con);
 			//GInscription g=new GInscription(con);
 			//GEleve g = new GEleve(con);
+			
 
 			//GGraphique g=new GGraphique(con);
 

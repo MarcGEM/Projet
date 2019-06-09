@@ -249,11 +249,12 @@ public class GAffichageBulletin extends JFrame
 		lblNewLabel_10.setBounds(325, 306+x, 92, 26);
 		lblNewLabel_10.setText(detailbulletin.getAppreciation());
 		panel.add(lblNewLabel_10);
-		}
+		
 		
 		//affichage moyenne generale
 		JLabel lblNewLabel_11 = new JLabel("New label");
 		lblNewLabel_11.setBounds(266, 475, 92, 26);
+		System.out.println("id bull " +idBulletin);
 		double mg=b.moyenneDetail(idBulletin);
 		lblNewLabel_11.setText(String.valueOf(mg));
 		panel.add(lblNewLabel_11);
@@ -263,7 +264,7 @@ public class GAffichageBulletin extends JFrame
 		lblNewLabel_12.setBounds(337, 475, 92, 26);
 		lblNewLabel_12.setText(bulletin.getAppreciation());
 		panel.add(lblNewLabel_12);
-		
+		}
 		
 		}
 		

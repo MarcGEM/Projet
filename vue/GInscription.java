@@ -41,12 +41,13 @@ public class GInscription extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(298, 0, 536, 263);
+		panel.setBackground(new Color(245, 222, 179));
+		panel.setBounds(298, 21, 536, 194);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(31, 62, 484, 138);
+		scrollPane.setBounds(31, 61, 484, 196);
 		panel.add(scrollPane);
 		
 		table = new JTable();
@@ -72,6 +73,10 @@ public class GInscription extends JFrame{
 		lblDetailbulletin.setBounds(21, 155, 130, 26);
 		getContentPane().add(lblDetailbulletin);
 		
+		Label label_1 = new Label("Classe");
+		label_1.setBounds(347, 290, 104, 26);
+		getContentPane().add(label_1);
+		
 		textFieldAnnee = new JTextField();
 		textFieldAnnee.setBackground(new Color(253, 245, 230));
 		textFieldAnnee.setBounds(131, 154, 146, 29);
@@ -83,22 +88,18 @@ public class GInscription extends JFrame{
 		getContentPane().add(lblInfos);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(578, 284, 235, 152);
+		scrollPane_2.setBounds(578, 334, 235, 152);
 		getContentPane().add(scrollPane_2);
 		
 		table_2 = new JTable();
 		scrollPane_2.setViewportView(table_2);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(308, 284, 222, 152);
+		scrollPane_1.setBounds(304, 334, 222, 152);
 		getContentPane().add(scrollPane_1);
 		
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
-		
-		Label label_1 = new Label("Classe");
-		label_1.setBounds(361, 216, 104, 26);
-		getContentPane().add(label_1);
 		
 		JButton btnAdd = new JButton("Ajouter");
 		btnAdd.addActionListener(new ButtonAddListener());
@@ -122,7 +123,7 @@ public class GInscription extends JFrame{
 		getContentPane().add(btnSupp);
 		
 		JLabel lblNewLabel_4 = new JLabel("Discipline");
-		lblNewLabel_4.setBounds(643, 216, 92, 26);
+		lblNewLabel_4.setBounds(651, 287, 92, 26);
 		getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblPrenom = new JLabel("ID Eleve");
