@@ -26,17 +26,22 @@ public class Test {
 
 			
 			//ConnexionA g = new ConnexionA();
-			Acceuil a= new Acceuil();
+			//Acceuil a= new Acceuil();
 			//GTrimestre g = new GTrimestre(con);
 			//GClasse g= new GClasse(con);
 			//GEnseignement g = new GEnseignement(con);
 			//GBulletin g= new GBulletin(con);
+			//GAffichageBulletin a = new GAffichageBulletin(con,2);
 			//GProf g= new GProf(con);
 			//GDiscipline g = new GDiscipline(con);
 			//GEvaluation g=new GEvaluation(con);
 			//GInscription g=new GInscription(con);
 			//GEleve g = new GEleve(con);
+
 			//GGraphique g=new GGraphique(con);
+
+			//GDetail g = new GDetail(con);
+
 			
 			//GAffichageBulletin v=new GAffichageBulletin(con,1);
 		} catch (ClassNotFoundException | SQLException e) {
