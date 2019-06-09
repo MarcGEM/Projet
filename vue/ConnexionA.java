@@ -59,22 +59,17 @@ public class ConnexionA extends JFrame {
 		btnConnexion.addActionListener(new ButtonCoListener());
 		getContentPane().add(btnConnexion);
 		
-		LblFond = new JLabel("");
-		LblFond.setBackground(Color.WHITE);
-		LblFond.setBounds(0, 0, 479, 290);
-		getContentPane().add(LblFond);
-		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(238, 202, 186, 32);
 		getContentPane().add(passwordField);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\compaore\\eclipse-workspace\\Projet\\images\\icons8-user-male-30.png"));
+		lblNewLabel_4.setIcon(new ImageIcon(ConnexionA.class.getResource("/images/icons8-user-male-30.png")));
 		lblNewLabel_4.setBounds(426, 57, 32, 26);
 		getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\compaore\\eclipse-workspace\\Projet\\images\\icons8-secure-30.png"));
+		lblNewLabel_5.setIcon(new ImageIcon(ConnexionA.class.getResource("/images/icons8-secure-30.png")));
 		lblNewLabel_5.setBounds(432, 157, 26, 26);
 		getContentPane().add(lblNewLabel_5);
 		
@@ -86,6 +81,11 @@ public class ConnexionA extends JFrame {
 		JLabel lblLogin = new JLabel("Login\r\n");
 		lblLogin.setBounds(58, 157, 92, 26);
 		getContentPane().add(lblLogin);
+		
+		LblFond = new JLabel("");
+		LblFond.setBackground(Color.WHITE);
+		LblFond.setBounds(0, 0, 479, 290);
+		getContentPane().add(LblFond);
 		
 		this.setVisible(true);
 		
