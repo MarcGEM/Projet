@@ -55,7 +55,7 @@ public class GAffichageBulletin extends JFrame
 	
 	public  GAffichageBulletin(Connexion con,int idEleve)  
 	{
-		System.out.println("ok");
+		
 		setBackground(new Color(245, 245, 245));
 		setTitle("BULLETIN");
 		setResizable(false);
@@ -149,10 +149,10 @@ public class GAffichageBulletin extends JFrame
 		
 		
 		
-		
+		Affichage();
 		
 			
-			/*
+			
 			
 			JScrollPane scrollPane_1 = new JScrollPane();
 			scrollPane_1.setBounds(33, 250, 424, 172);
@@ -182,8 +182,9 @@ public class GAffichageBulletin extends JFrame
 			
 			JPanel panel_3 = new JPanel();
 			scrollPane_3.setViewportView(panel_3);
-			*/
-			Affichage();
+			
+		
+			
 			
 			
 		this.setVisible(true);
@@ -191,14 +192,16 @@ public class GAffichageBulletin extends JFrame
 	}
 	
 	public void Affichage()  {
+		
 		rechercher();
+		
 		SimpleDateFormat formater=new SimpleDateFormat("yyyy-MM-dd");
 		EleveDAO eleveDAO = new EleveDAO(con);
 		Eleve e= eleveDAO.find(idEleve);
 		
 		
 		Bulletin bulletin= b.find(idBulletin);
-		System.out.println("c");
+		
 		
 		
 		 lblNom.setText(e.getNom());
@@ -211,11 +214,19 @@ public class GAffichageBulletin extends JFrame
 		lblFin.setText(dateFin);
 		lblDateDebut.setText(dateDebut);
 		
-		System.out.println("ok");
+		
 		for(int i=0;i<listidDetailBulletin.size();i++) {
-		//System.out.println(listidDetailBulletin.get(i));
-		Detailbulletin detailbulletin = d.find(listidDetailBulletin.get(i));
-		double moyenne=d.moyenneDiscipline(listidDetailBulletin.get(i));
+			
+			
+		DetailbulletinDAO db = new DetailbulletinDAO(con);
+		Detailbulletin detailbulletin = db.find(listidDetailBulletin.get(i));
+		
+		if(detailbulletin.getBulletin().getId()==idBulletin) {
+		System.out.println(listidDetailBulletin.get(i));
+			
+		double moyenne=db.moyenneDiscipline(listidDetailBulletin.get(i));
+	
+		System.out.println(moyenne);
 		int x=i*40;
 		//affichage nom matiere
 		JLabel lblNewLabel_8 = new JLabel("New label");
@@ -251,7 +262,7 @@ public class GAffichageBulletin extends JFrame
 		panel.add(lblNewLabel_12);
 		
 		
-		
+		}
 		
 		//oupsi
 		
@@ -294,10 +305,11 @@ public class GAffichageBulletin extends JFrame
 		//onn les stocks danns un araylist
 		
 		for(int i=0;i<totD.size();i++) {
-			if(totD.get(i).getBulletin().getId()==idTrimestre)
+			if(totD.get(i).getBulletin().getId()==idBulletin)
 			{
 				
 				listidDetailBulletin.add(totD.get(i).getId());
+				
 				
 			}
 			
