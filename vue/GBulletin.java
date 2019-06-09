@@ -221,6 +221,7 @@ public class GBulletin extends JFrame {
 
 					@Override
 					public void mouseClicked(MouseEvent e) {
+						System.out.println("ok");
 						Deplace();
 						
 					}
@@ -256,7 +257,6 @@ public class GBulletin extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
 						BulletinDAO bulletin = new BulletinDAO(con);
-						
 						ResultSet rs =bulletin.Ro();
 						table.setModel(DbUtils.resultSetToTableModel(rs));	
 						TrimestreDAO trimestre1 = new TrimestreDAO(con);

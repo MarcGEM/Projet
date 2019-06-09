@@ -55,6 +55,7 @@ public class GAffichageBulletin extends JFrame
 	
 	public  GAffichageBulletin(Connexion con,int idEleve)  
 	{
+		System.out.println("ok");
 		setBackground(new Color(245, 245, 245));
 		setTitle("BULLETIN");
 		setResizable(false);
@@ -150,7 +151,7 @@ public class GAffichageBulletin extends JFrame
 		
 		
 			
-			Affichage();
+			/*
 			
 			JScrollPane scrollPane_1 = new JScrollPane();
 			scrollPane_1.setBounds(33, 250, 424, 172);
@@ -173,9 +174,6 @@ public class GAffichageBulletin extends JFrame
 			lblMoyenneGenerale.setBounds(46, 475, 174, 26);
 			panel.add(lblMoyenneGenerale);
 			
-			Component verticalStrut = Box.createVerticalStrut(20);
-			verticalStrut.setBounds(199, 67, -9, 114);
-			panel.add(verticalStrut);
 			
 			JScrollPane scrollPane_3 = new JScrollPane();
 			scrollPane_3.setBounds(46, 202, 411, 43);
@@ -183,8 +181,8 @@ public class GAffichageBulletin extends JFrame
 			
 			JPanel panel_3 = new JPanel();
 			scrollPane_3.setViewportView(panel_3);
-			
-			
+			*/
+			Affichage();
 			
 			
 		this.setVisible(true);
@@ -211,8 +209,9 @@ public class GAffichageBulletin extends JFrame
 		lblFin.setText(dateFin);
 		lblDateDebut.setText(dateDebut);
 		
-		
+		System.out.println("ok");
 		for(int i=0;i<listidDetailBulletin.size();i++) {
+		//System.out.println(listidDetailBulletin.get(i));
 		Detailbulletin detailbulletin = d.find(listidDetailBulletin.get(i));
 		double moyenne=d.moyenneDiscipline(listidDetailBulletin.get(i));
 		int x=i*40;
