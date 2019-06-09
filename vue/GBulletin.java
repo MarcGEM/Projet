@@ -396,7 +396,7 @@ public class GBulletin extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				try {
-				int d=Integer.parseInt(textFieldIdRecherche.getText());
+				int d=Integer.valueOf(textFieldIdRecherche.getText());
 				GAffichageBulletin a = new GAffichageBulletin(con,d);
 				GBulletin.this.setVisible(false);
 				}catch(Exception yu) {

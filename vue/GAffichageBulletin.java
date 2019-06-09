@@ -25,6 +25,8 @@ import vue.GAnnee.ButtonAddListener;
 import vue.GAnnee.MouseAdapter;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GAffichageBulletin extends JFrame
 {
@@ -79,6 +81,11 @@ public class GAffichageBulletin extends JFrame
 		panel.setBounds(88, 21, 478, 602);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.setBounds(363, 0, 115, 29);
+		btnMenu.addActionListener(new BtMenu());
+		panel.add(btnMenu);
 		
 		JLabel lblNewLabel = new JLabel("BULLETIN");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 25));
@@ -294,7 +301,7 @@ public class GAffichageBulletin extends JFrame
 		
 		for(int i=0;i<totB.size();i++) {
 			
-			if(totB.get(i).getInscription().getId()==idBulletin) {
+			if(totB.get(i).getInscription().getId()==idInscription) {
 				idBulletin=totB.get(i).getId();
 				idTrimestre=totB.get(i).getTrimestre().getId();
 				
@@ -321,4 +328,14 @@ public class GAffichageBulletin extends JFrame
 		
 		
 	}
+	
+	class BtMenu implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Acceuil a=new Acceuil();
+			GAffichageBulletin.this.setVisible(false);
+		}
+	}
+	
 }
