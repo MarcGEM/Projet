@@ -23,6 +23,8 @@ import vue.GAnnee.BtAfficherListener;
 import vue.GAnnee.BtMenu;
 import vue.GAnnee.ButtonAddListener;
 import vue.GAnnee.MouseAdapter;
+import java.awt.Component;
+import java.awt.Font;
 
 public class GAffichageBulletin extends JFrame
 {
@@ -53,6 +55,7 @@ public class GAffichageBulletin extends JFrame
 	
 	public  GAffichageBulletin(Connexion con,int idEleve)  
 	{
+		setBackground(new Color(245, 245, 245));
 		setTitle("BULLETIN");
 		setResizable(false);
 		this.idEleve=idEleve;
@@ -70,12 +73,14 @@ public class GAffichageBulletin extends JFrame
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(88, 21, 478, 602);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("BULLETIN");
-		lblNewLabel.setBounds(189, 29, 115, 26);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 25));
+		lblNewLabel.setBounds(189, 29, 220, 26);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nom");
@@ -86,8 +91,9 @@ public class GAffichageBulletin extends JFrame
 		lblNewLabel_2.setBounds(229, 115, 92, 26);
 		panel.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("IMAGE");
-		lblNewLabel_3.setBounds(36, 63, 132, 118);
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(GAffichageBulletin.class.getResource("/images/icons8-\u00E9crivain-100.png")));
+		lblNewLabel_3.setBounds(36, 70, 132, 111);
 		panel.add(lblNewLabel_3);
 		
 		 lblNom = new JLabel("j");
@@ -153,13 +159,30 @@ public class GAffichageBulletin extends JFrame
 			JPanel panel_1 = new JPanel();
 			scrollPane_1.setViewportView(panel_1);
 			
+			JScrollPane scrollPane_2 = new JScrollPane();
+			scrollPane_2.setBounds(210, 63, 247, 121);
+			panel.add(scrollPane_2);
+			
 			JPanel panel_2 = new JPanel();
-			panel_2.setBounds(210, 63, 247, 121);
-			panel.add(panel_2);
+			scrollPane_2.setViewportView(panel_2);
+			
+			JScrollPane scrollPane = new JScrollPane();
+			panel_2.add(scrollPane);
 			
 			JLabel lblMoyenneGenerale = new JLabel("Moyenne Generale");
 			lblMoyenneGenerale.setBounds(46, 475, 174, 26);
 			panel.add(lblMoyenneGenerale);
+			
+			Component verticalStrut = Box.createVerticalStrut(20);
+			verticalStrut.setBounds(199, 67, -9, 114);
+			panel.add(verticalStrut);
+			
+			JScrollPane scrollPane_3 = new JScrollPane();
+			scrollPane_3.setBounds(46, 202, 411, 43);
+			panel.add(scrollPane_3);
+			
+			JPanel panel_3 = new JPanel();
+			scrollPane_3.setViewportView(panel_3);
 			
 			
 			

@@ -35,6 +35,8 @@ public class GBulletin extends JFrame {
 	    private JTextField textFieldIdInscription;
 	    private JTextField textFieldAppreciation;
 	    private JTable table_2;
+	    private JTable table_3;
+	    private JTextField textFieldIdRecherche;
 	    
 	    
 	    
@@ -98,16 +100,16 @@ public class GBulletin extends JFrame {
 			JButton btnAdd = new JButton("Ajouter");
 
 			btnAdd.addActionListener(new ButtonAddListener());
-			btnAdd.setBounds(18, 365, 133, 35);
+			btnAdd.setBounds(18, 325, 133, 35);
 			getContentPane().add(btnAdd);
 			
 			JButton btnModif = new JButton("Modifier");
-			btnModif.setBounds(172, 365, 123, 35);
+			btnModif.setBounds(183, 325, 123, 35);
 			btnModif.addActionListener(new BModifListener());
 			getContentPane().add(btnModif);
 			
 			JButton btnSupp = new JButton("Supprimer");
-			btnSupp.setBounds(96, 421, 141, 35);
+			btnSupp.setBounds(95, 379, 141, 35);
 			btnSupp.addActionListener(new BSuppIdListener());
 			getContentPane().add(btnSupp);
 			
@@ -141,15 +143,44 @@ public class GBulletin extends JFrame {
 			textFieldAppreciation.setColumns(10);
 			
 			JScrollPane scrollPane_2 = new JScrollPane();
-			scrollPane_2.setBounds(346, 430, 394, 152);
+			scrollPane_2.setBounds(574, 430, 239, 152);
 			getContentPane().add(scrollPane_2);
 			
 			table_2 = new JTable();
 			scrollPane_2.setViewportView(table_2);
 			
 			JLabel lblNewLabel_4 = new JLabel("Inscription");
-			lblNewLabel_4.setBounds(490, 402, 121, 26);
+			lblNewLabel_4.setBounds(637, 403, 121, 26);
 			getContentPane().add(lblNewLabel_4);
+			
+			JScrollPane scrollPane_3 = new JScrollPane();
+			scrollPane_3.setBounds(316, 430, 239, 152);
+			getContentPane().add(scrollPane_3);
+			
+			table_3 = new JTable();
+			scrollPane_3.setViewportView(table_3);
+			
+			JLabel lblEleve = new JLabel("Eleve");
+			lblEleve.setBounds(368, 403, 92, 26);
+			getContentPane().add(lblEleve);
+			
+			JLabel lblRechercheBulletin = new JLabel("Recherche Bulletin");
+			lblRechercheBulletin.setBounds(50, 435, 186, 26);
+			getContentPane().add(lblRechercheBulletin);
+			
+			textFieldIdRecherche = new JTextField();
+			textFieldIdRecherche.setBounds(149, 482, 146, 32);
+			getContentPane().add(textFieldIdRecherche);
+			textFieldIdRecherche.setColumns(10);
+			
+			JLabel lblNewLabel_5 = new JLabel("ID Eleve");
+			lblNewLabel_5.setBounds(18, 485, 110, 26);
+			getContentPane().add(lblNewLabel_5);
+			
+			JButton btnVoirBulletin = new JButton("Voir Bulletin");
+			btnVoirBulletin.setBounds(80, 531, 169, 35);
+			btnVoirBulletin.addActionListener(new BtVoir());
+			getContentPane().add(btnVoirBulletin);
 			this.con=con;
 			
 			Annee= new AnneescolaireDAO(con);
@@ -234,6 +265,9 @@ public class GBulletin extends JFrame {
 						InscriptionDAO inscription1 = new InscriptionDAO(con);
 						ResultSet rs2 = inscription1.Ro();
 						table_2.setModel(DbUtils.resultSetToTableModel(rs2));
+						EleveDAO eleve1=new EleveDAO(con);
+						ResultSet rs3 = eleve1.Ro();
+						table_3.setModel(DbUtils.resultSetToTableModel(rs3));
 						
 						
 						
@@ -356,6 +390,24 @@ public class GBulletin extends JFrame {
 			
 		}
 		
+		class BtVoir implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				try {
+				int d=Integer.parseInt(textFieldIdRecherche.getText());
+				GAffichageBulletin a = new GAffichageBulletin(con,d);
+				GBulletin.this.setVisible(false);
+				}catch(Exception yu) {
+					ta.showMessageDialog(ta, "Erreur Cette eleve n'a pas de bulletin disponible","Erreur ",ta.WARNING_MESSAGE);
+				}
+				
+			}
+		}
+		
+		
+		
+		
 		class BtMenu implements ActionListener
 		{
 			public void actionPerformed(ActionEvent e)
@@ -364,5 +416,4 @@ public class GBulletin extends JFrame {
 				GBulletin.this.setVisible(false);
 			}
 		}
-		
 }

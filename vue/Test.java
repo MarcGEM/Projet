@@ -30,8 +30,8 @@ public class Test {
 			//GTrimestre g = new GTrimestre(con);
 			//GClasse g= new GClasse(con);
 			//GEnseignement g = new GEnseignement(con);
-			//GBulletin g= new GBulletin(con);
-			GAffichageBulletin a = new GAffichageBulletin(con,2);
+			GBulletin g= new GBulletin(con);
+			//GAffichageBulletin a = new GAffichageBulletin(con,2);
 			//GProf g= new GProf(con);
 			//GDiscipline g = new GDiscipline(con);
 			//GEvaluation g=new GEvaluation(con);
