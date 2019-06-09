@@ -120,6 +120,23 @@ public class BulletinDAO extends DAO<Bulletin>
 
 	}
 
+	public ResultSet Ro() 
+	{
+		
+		Anneescolaire a=new Anneescolaire();
+		String query="SELECT * FROM bulletin";
+		
+		try {
+			con.rset=con.stmt.executeQuery(query);
+			ResultSet rs=con.rset;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con.rset ;
+	}
 	
 
 	
