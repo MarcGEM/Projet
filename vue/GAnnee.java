@@ -15,6 +15,7 @@ import net.proteanit.sql.DbUtils;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.SystemColor;
 
 public class GAnnee extends JFrame{
     private AnneescolaireDAO Annee;
@@ -28,6 +29,7 @@ public class GAnnee extends JFrame{
     
 	public GAnnee(Connexion con) {
 		super("Gestion Annee");
+		getContentPane().setBackground(new Color(176, 224, 230));
 		getContentPane().setForeground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
@@ -36,7 +38,8 @@ public class GAnnee extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(298, 0, 536, 263);
+		panel.setBackground(new Color(176, 224, 230));
+		panel.setBounds(292, 0, 542, 263);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -96,6 +99,7 @@ public class GAnnee extends JFrame{
 		getContentPane().add(btnSupp);
 		
 		JLabel lblFond = new JLabel("");
+		lblFond.setBackground(SystemColor.controlHighlight);
 		lblFond.setBounds(0, 0, 834, 600);
 		getContentPane().add(lblFond);
 		this.con=con;

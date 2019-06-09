@@ -30,7 +30,7 @@ public class GDiscipline extends JFrame{
     
 	public GDiscipline(Connexion con) {
 		super("Gestion Discipline");
-		getContentPane().setForeground(Color.BLACK);
+		getContentPane().setForeground(new Color(176, 224, 230));
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
 		//position au centre
@@ -38,6 +38,7 @@ public class GDiscipline extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setForeground(new Color(176, 224, 230));
 		panel.setBounds(298, 0, 536, 263);
 		getContentPane().add(panel);
 		panel.setLayout(null);
@@ -99,6 +100,7 @@ public class GDiscipline extends JFrame{
 		getContentPane().add(btnSupp);
 		
 		JLabel lblFond = new JLabel("");
+		lblFond.setForeground(new Color(176, 224, 230));
 		lblFond.setBounds(0, 0, 834, 600);
 		getContentPane().add(lblFond);
 		this.con=con;

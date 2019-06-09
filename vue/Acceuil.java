@@ -30,7 +30,7 @@ public class Acceuil extends JFrame implements ActionListener {
 	
 	public  Acceuil() {
 		super("Acceuil");
-		getContentPane().setBackground(Color.CYAN);
+		getContentPane().setBackground(new Color(176, 224, 230));
 		getContentPane().setForeground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(735,580);

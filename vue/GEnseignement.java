@@ -52,6 +52,7 @@ public class GEnseignement extends JFrame {
 			trimestre = new TrimestreDAO(con);
 			
 			JPanel panel = new JPanel();
+			panel.setForeground(new Color(176, 224, 230));
 			panel.setBounds(298, 0, 536, 217);
 			getContentPane().add(panel);
 			panel.setLayout(null);

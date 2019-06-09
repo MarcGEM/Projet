@@ -32,7 +32,7 @@ public class GEvaluation extends JFrame{
     
 	public GEvaluation(Connexion con) {
 		super("Gestion Evaluation");
-		getContentPane().setForeground(Color.BLACK);
+		getContentPane().setForeground(new Color(176, 224, 230));
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(840,651);
 		//position au centre
@@ -95,6 +95,7 @@ public class GEvaluation extends JFrame{
 		getContentPane().add(btnSupp);
 		
 		JLabel lblFond = new JLabel("");
+		lblFond.setForeground(new Color(176, 224, 230));
 		lblFond.setBounds(0, 0, 834, 600);
 		getContentPane().add(lblFond);
 		
@@ -129,6 +130,11 @@ public class GEvaluation extends JFrame{
 		
 		table_1 = new JTable();
 		scrollPane_1.setViewportView(table_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setForeground(new Color(176, 224, 230));
+		lblNewLabel_1.setBounds(0, 0, 834, 611);
+		getContentPane().add(lblNewLabel_1);
 		
 		
 		
@@ -281,7 +287,4 @@ public class GEvaluation extends JFrame{
 			GEvaluation.this.setVisible(false);
 		}
 	}
-	
-	
-	
 }

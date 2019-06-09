@@ -66,6 +66,7 @@ public class GAffichageBulletin extends JFrame
 		d=new DetailbulletinDAO(con);
 		listidDetailBulletin= new ArrayList<Integer>();
 		
+		
 		getContentPane().setForeground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(641,695);
@@ -197,6 +198,7 @@ public class GAffichageBulletin extends JFrame
 		
 		
 		Bulletin bulletin= b.find(idBulletin);
+		System.out.println("c");
 		
 		
 		 lblNom.setText(e.getNom());
@@ -274,6 +276,8 @@ public class GAffichageBulletin extends JFrame
 			}
 			
 		}
+		System.out.println("c");
+		
 		
 		//on parcour l'arraylist a la recherche de l'id Bulletin
 		
